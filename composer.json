@@ -1,6 +1,6 @@
 {
    "require": {
-      "froq/froq": "1.0.*",
+      "froq/froq": "dev-master",
       "k-gun/oppa": "dev-master"
    },
    "autoload": {
