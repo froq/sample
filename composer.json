@@ -1,0 +1,13 @@
+{
+   "require": {
+      "froq/froq": "1.0.*",
+      "k-gun/oppa": "dev-master"
+   },
+   "autoload": {
+      "classmap": [
+         "app/service/",
+         "app/service/default/"
+      ]
+   },
+   "minimum-stability": "stable"
+}
