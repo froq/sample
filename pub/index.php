@@ -52,7 +52,7 @@ if (is_local()) {
 
 /**
  * Set output handler as you wish.
- * @todo error, exception, shutdown
+ * @todo error, exception, shutdown, onbefore, onafter
  */
 // $app->setHandler('output', function($output) {
 //    return trim($output);
