@@ -52,11 +52,16 @@ if (is_local()) {
 
 /**
  * Set output handler as you wish.
- * @todo error, exception, shutdown, onbefore, onafter
+ * @todo error, exception, shutdown
  */
-// $app->setHandler('output', function($output) {
-//    return trim($output);
+// output handler
+// $app->setHandler('output', function($output) use($app) {
+//    return $output;
 // });
+//
+// onbefore/onafter handler(s)
+// $app->setHandler('onBefore', function($service) use($app) { ... });
+// $app->setHandler('onAfter',  function($service) use($app) { ... });
 
 /**
  * Set application env/root/config and run application.
