@@ -22,7 +22,10 @@
 ### Install Service
 
 ```
-~$ cd /var/www/froq && git clone git@github.com:froq/service.git . && composer install
+~$ mkdir -p /var/www/froq
+   && cd /var/www/froq
+   && git clone git@github.com:froq/service.git .
+   && composer install
 ```
 
 ### Import Mock Database
