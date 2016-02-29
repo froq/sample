@@ -46,10 +46,7 @@ $cfg['db']['mysql']['development'] = [
 /**
  * Etc. options.
  */
-// currency
-$cfg['etc']['currency'] = [
-   'EUR' => 'EUR (€)', 'GBP' => 'GBP (£)',
-   'TRY' => 'TRY (₺)', 'USD' => 'USD ($)',
-];
+// foo
+// $cfg['etc']['foo'] = [];
 
 return $cfg;
