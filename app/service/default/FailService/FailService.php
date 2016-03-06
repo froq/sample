@@ -5,19 +5,28 @@ class FailService extends Service
 {
    public function main()
    {
-      if (!isset($this->viewData['fail']['code'])) {
-         return $this->view('./app/service/view/fail/main', $data);
+      $fail = [];
+      if (isset($this->viewData['fail']['code'])) {
+         if ($this->viewData['fail']['code'] == 404) {
+            $fail['error'] = '404 Not Found';
+            $fail['error_detail'] = $this->viewData['fail']['text'];
+         } elseif ($this->viewData['fail']['code'] == 500) {
+            $fail['error'] = '500 Internal Server Error';
+            $fail['error_detail'] = $this->viewData['fail']['text'];
+         // } elseif (...) {
+         }
       }
+      $this->print($fail);
+   }
 
-      if ($this->viewData['fail']['code'] == 404) {
-         $data['error'] = '404 Not Found';
-         $data['error_detail'] = $this->viewData['fail']['text'];
-      } elseif ($this->viewData['fail']['code'] == 500) {
-         $data['error'] = '500 Internal Server Error';
-         $data['error_detail'] = $this->viewData['fail']['text'];
-      // } elseif () { ...
+   public function print($fail = null)
+   {
+      if (empty($fail)) {
+         print('<h1>Error</h1>');
+         print('<p>Unknown error occurred.</p>');
+      } else {
+         printf('<h1>%s</h1>', $fail['error']);
+         printf('<p>%s.</p>', $fail['error_detail']);
       }
-
-      $this->view('./app/service/view/fail/main', $data);
    }
 }
