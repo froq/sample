@@ -1,32 +1,47 @@
 <?php
 use Froq\Service\Protocol\Site as Service;
 
+/**
+ * Fail Service.
+ */
 class FailService extends Service
 {
+   /**
+    * Main.
+    * @return void
+    */
    public function main()
    {
-      $fail = [];
-      if (isset($this->viewData['fail']['code'])) {
-         if ($this->viewData['fail']['code'] == 404) {
-            $fail['error'] = '404 Not Found';
-            $fail['error_detail'] = $this->viewData['fail']['text'];
-         } elseif ($this->viewData['fail']['code'] == 500) {
-            $fail['error'] = '500 Internal Server Error';
-            $fail['error_detail'] = $this->viewData['fail']['text'];
-         // } elseif (...) {
-         }
+      $fail = get_global('app.service.view.fail');
+      if (!isset($fail['code'])) {
+         return $this->print();
       }
+
+      // add more if needs
+      if ($fail['code'] == 404) {
+         $fail['error'] = '404 Not Found';
+         $fail['error_detail'] = $fail['text'];
+      } elseif ($fail['code'] == 500) {
+         $fail['error'] = '500 Internal Server Error';
+         $fail['error_detail'] = $fail['text'];
+      }
+
       $this->print($fail);
    }
 
+   /**
+    * Print.
+    * @param  mixex $fail
+    * @return void
+    */
    public function print($fail = null)
    {
       if (empty($fail)) {
-         print('<h1>Error</h1>');
-         print('<p>Unknown error occurred.</p>');
+         print '<h1>Error</h1>';
+         print '<p>Unknown error occurred.</p>';
       } else {
-         printf('<h1>%s</h1>', $fail['error']);
-         printf('<p>%s.</p>', $fail['error_detail']);
+         print '<h1>'. $fail['error'] .'</h1>';
+         print '<p>'. $fail['error_detail'] .'</p>';
       }
    }
 }
