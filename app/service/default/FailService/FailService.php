@@ -41,7 +41,7 @@ class FailService extends Service
          print '<p>Unknown error occurred.</p>';
       } else {
          print '<h1>'. $fail['error'] .'</h1>';
-         print '<p>'. $fail['error_detail'] .'</p>';
+         print '<p>'. $fail['error_detail'] .'.</p>';
       }
    }
 }
