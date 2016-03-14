@@ -21,19 +21,19 @@
  */
 
 /**
- * Set everything as relative to the application root.
+ * Set everything as relative to the app root.
  * @important
  */
 chdir(dirname(__dir__));
 
 /**
  * Include bootstrap that registers Autoload
- * and returns Application.
+ * and returns app.
  */
 $app = require('./vendor/froq/froq/src/Boot.php');
 
 /**
- * Application root.
+ * app root.
  */
 $appRoot = '/';
 
@@ -43,11 +43,11 @@ $appRoot = '/';
 $appConfig = require('./app/global/cfg.php');
 
 /**
- * Application env.
+ * App env.
  */
-$env = Application\Application::ENVIRONMENT_PRODUCTION;
+$env = Froq\App::ENV_PRODUCTION;
 if (is_local()) {
-   $env = Application\Application::ENVIRONMENT_DEVELOPMENT;
+   $env = Froq\App::ENV_DEVELOPMENT;
 }
 
 /**
@@ -64,7 +64,7 @@ if (is_local()) {
 // $app->setHandler('onAfter',  function($service) use($app) { ... });
 
 /**
- * Set application env/root/config and run application.
+ * Set app env/root/config and run app.
  */
 $app->setEnv($env)
     ->setRoot($appRoot)

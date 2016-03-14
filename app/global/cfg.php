@@ -5,7 +5,7 @@
 $cfg = [];
 
 /**
- * Application options.
+ * App options.
  */
 // allowed hosts (add more if needed)
 $cfg['app']['hosts'][] = $_SERVER['SERVER_NAME'];
@@ -19,9 +19,9 @@ $cfg['app']['logger'] = [];
 $cfg['app']['logger']['directory'] = $app->config->get('app.dir.tmp') .'/log/app/';
 $cfg['app']['logger']['filenameFormat'] = 'Y-m-d';
 if (is_local()) {
-   $cfg['app']['logger']['level'] = Application\Logger\Logger::ALL;
+   $cfg['app']['logger']['level'] = Froq\Logger\Logger::ALL;
 } else {
-   $cfg['app']['logger']['level'] = Application\Logger\Logger::WARN | Application\Logger\Logger::FAIL;
+   $cfg['app']['logger']['level'] = Froq\Logger\Logger::WARN | Froq\Logger\Logger::FAIL;
 }
 
 /**

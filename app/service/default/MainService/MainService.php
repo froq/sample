@@ -1,5 +1,5 @@
 <?php
-use Application\Service\Protocol\Site as Service;
+use Froq\Service\Protocol\Site as Service;
 
 class MainService extends Service
 {

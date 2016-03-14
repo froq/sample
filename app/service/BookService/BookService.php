@@ -1,7 +1,7 @@
 <?php
-use Application\Http\Response\Status;
-use Application\Http\Response\ContentType;
-use Application\Service\Protocol\Rest as Service;
+use Froq\Http\Response\Status;
+use Froq\Http\Response\ContentType;
+use Froq\Service\Protocol\Rest as Service;
 
 /**
  * Demo service.

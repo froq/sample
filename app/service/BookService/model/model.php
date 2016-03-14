@@ -1,6 +1,6 @@
 <?php
-use Application\Database\Database;
-use Application\Database\Model\Model;
+use Froq\Database\Database;
+use Froq\Database\Model\Model;
 
 class BookModel extends Model
 {
