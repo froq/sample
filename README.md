@@ -22,9 +22,9 @@
 ### Install Service
 
 ```
-~$ mkdir -p /var/www/froq
-   && cd /var/www/froq
-   && git clone git@github.com:froq/service.git .
+~$ mkdir -p /var/www/froq \
+   && cd /var/www/froq \
+   && git clone git@github.com:froq/service.git . \
    && composer install
 ```
 
