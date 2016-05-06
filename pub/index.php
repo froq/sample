@@ -19,54 +19,82 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+ob_start();
 
 /**
- * Set everything as relative to the app root.
+ * App dir.
+ * @const string
+ */
+define('APP_DIR', dirname(__dir__));
+
+/**
+ * App start time.
+ * @const float
+ */
+define('APP_START_TIME', microtime(true));
+
+/**
+ * Set everything as relative to the app dir.
  * @important
  */
-chdir(dirname(__dir__));
+chdir(APP_DIR);
+
+/**
+ * Include composer autoload.
+ */
+if (!file_exists('./vendor/autoload.php')) {
+    die('Composer autoloader not found!');
+}
+require('./vendor/autoload.php');
 
 /**
  * Include bootstrap that registers Autoload
  * and returns app.
+ * @var Froq\App
  */
-$app = require('./vendor/froq/froq/src/Boot.php');
+if (!file_exists('./../froq/src/boot.php')) {
+    die('Froq bootstrap not found!');
+}
+$app = require('./../froq/src/boot.php');
 
 /**
- * app root.
+ * App env.
+ * @var string
+ */
+$appEnv = Froq\App::ENV_PRODUCTION;
+if (is_local()) {
+    $appEnv = Froq\App::ENV_DEV;
+}
+
+/**
+ * App root.
+ * @var string
  */
 $appRoot = '/';
 
 /**
  * User app config.
+ * @var array
  */
 $appConfig = require('./app/global/cfg.php');
 
 /**
- * App env.
- */
-$env = Froq\App::ENV_PRODUCTION;
-if (is_local()) {
-   $env = Froq\App::ENV_DEVELOPMENT;
-}
-
-/**
- * Set output handler as you wish.
- * @todo error, exception, shutdown
+ * Set output handler or others.
  */
 // output handler
-// $app->setHandler('output', function($output) use($app) {
-//    return $output;
+// $app->events->on('app.output', function($output) {
+//    ...;
 // });
-//
-// onbefore/onafter handler(s)
-// $app->setHandler('onBefore', function($service) use($app) { ... });
-// $app->setHandler('onAfter',  function($service) use($app) { ... });
+
+// before/after called service method
+// $this->app->events->on('service.methodBefore', func, [, funcArgs]);
+// $this->app->events->on('service.methodAfter', func, [, funcArgs]);
 
 /**
  * Set app env/root/config and run app.
  */
-$app->setEnv($env)
+$app->setEnv($appEnv)
     ->setRoot($appRoot)
     ->setConfig($appConfig)
     ->run();
+

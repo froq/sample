@@ -1,7 +1,6 @@
 {
    "require": {
-      "froq/froq": "dev-master",
-      "k-gun/oppa": "dev-master"
+      "froq/froq": "~1.0"
    },
    "minimum-stability": "stable"
 }
