@@ -1,6 +1,5 @@
 # local
-.etc/
-.tmp/
+tmp/
 
 # composer
 vendor/
