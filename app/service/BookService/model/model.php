@@ -1,13 +1,13 @@
 <?php
-use Froq\Database\Database;
-use Froq\Database\Model\Model;
+namespace Froq\App\Service;
 
+use Froq\Database\Model\Mysql as Model;
+
+/**
+ * Book Model.
+ */
 class BookModel extends Model
 {
-   protected $vendor = Database::VENDOR_MYSQL;
-   // table, collection etc..
-   protected $stackName = 'book';
-   protected $stackPrimary = 'id';
-
-   public $id;
+    protected $stack = 'book';
+    protected $stackPrimary = 'id';
 }
