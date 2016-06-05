@@ -1,88 +1,65 @@
 <?php
-use Froq\Http\Response\Status;
-use Froq\Http\Response\ContentType;
-use Froq\Service\Protocol\Rest as Service;
+namespace Froq\App\Service;
+
+use Froq\Service\Protocol\Site as Service;
 
 /**
- * Demo service.
+ * Book Service.
  */
 class BookService extends Service
 {
-   // allowed request methods
-   protected $allowedRequestMethods = ['GET', 'POST', 'PATCH'];
+    // use view?
+    protected $useView = true;
 
-   // initialization
-   public function init()
-   {
-      // init model
-      $this->model = new BookModel();
-      // set default content type
-      $this->app->response->setContentType(ContentType::JSON);
-   }
+    // use main only?
+    // protected $useMainOnly = true;
 
-   // main method always called
-   public function main() {}
+    // allowed methods
+    protected $allowedRequestMethods = ['GET', 'POST'];
 
-   // GET /book/123
-   public function get()
-   {
-      $this->model->id = (int) $this->app->request->uri->segment(1);
-      if (!is_id($this->model->id)) {
-         $this->app->response->setStatus(Status::BAD_REQUEST);
-         return;
-      }
+    /**
+     * Init.
+     * @return void
+     */
+    public function init()
+    {
+        $this->model = new BookModel();
+    }
 
-      $book = $this->model->find();
-      if (empty($book)) {
-         $this->app->response->setStatus(Status::NOT_FOUND);
-         return;
-      }
+    /**
+     * Main.
+     * @return void
+     */
+    public function main()
+    {
+        print "Hello, Froq!\n";
 
-      return $book;
-   }
+        // $this->useMainOnly = true;
 
-   // POST /book
-   public function post()
-   {
-      $this->model->name = trim($this->app->request->params->post['name']);
-      $this->model->price = trim($this->app->request->params->post['price']);
-      if ($this->model->name == '' || $this->model->price == '') {
-         $this->app->response->setStatus(Status::BAD_REQUEST);
-         return;
-      }
+        // open, if imported mock data into db
+        // $this->doAll();
+    }
 
-      $id = $this->model->save();
-      if (is_id($id)) {
-         return ['ok' => true, 'id' => $id];
-      }
+    /**
+     * All.
+     * @return void
+     */
+    public function doAll()
+    {
+        $this->view('main', [
+            'books' => $this->model->findAll()
+        ]);
+    }
 
-      return ['ok' => false, 'id' => null];
-   }
-
-   // PATCH /book/123
-   public function patch()
-   {
-      $this->model->id = (int) $this->app->request->uri->segment(1);
-      $this->model->name = trim($this->app->request->params->post['name']);
-      $this->model->price = trim($this->app->request->params->post['price']);
-      if (!is_id($this->model->id) || $this->model->name == '' || $this->model->price == '') {
-         $this->app->response->setStatus(Status::BAD_REQUEST);
-         return;
-      }
-      if (!$this->model->find()) {
-         $this->app->response->setStatus(Status::NOT_FOUND);
-         return;
-      }
-
-      $result = $this->model->save();
-      if (is_int($result)) {
-         return ['ok' => true, 'id' => $this->model->id];
-      }
-
-      return ['ok' => false, 'id' => null];
-   }
-
-   // nope!
-   public function put() {}
-   public function delete() {}
+    /**
+     * Detail.
+     * @param  int $id
+     * @return void
+     */
+    public function doDetail($id)
+    {
+        $this->view('main', [
+            'books' => $this->model->find($id)
+        ]);
+    }
 }
