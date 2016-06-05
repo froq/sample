@@ -1,6 +1,6 @@
 {
-   "require": {
-      "froq/froq": "~1.0"
-   },
-   "minimum-stability": "stable"
+    "require": {
+        "froq/froq": "~1.0"
+    },
+    "minimum-stability": "stable"
 }
