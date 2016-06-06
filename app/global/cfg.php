@@ -1,4 +1,7 @@
 <?php
+/**
+ * Set your config here that will be used globally in app.
+ */
 $cfg = [];
 
 // logger
