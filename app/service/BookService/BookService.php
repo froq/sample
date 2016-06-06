@@ -32,12 +32,7 @@ class BookService extends Service
      */
     public function main()
     {
-        print "Hello, Froq!\n";
-
-        // $this->useMainOnly = true;
-
-        // open, if imported mock data into db
-        // $this->doAll();
+        $this->doAll();
     }
 
     /**
