@@ -1,1 +1,4 @@
-<?php defined('root') or die('Access denied!');
+<?php
+/**
+ * Default head view file.
+ */
