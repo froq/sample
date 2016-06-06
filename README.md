@@ -18,6 +18,6 @@
 ```
 ~$ mkdir -p /var/www/froq \
    && cd /var/www/froq \
-   && git clone git@github.com:froq/froq-skeleton.git . \
+   && git clone git@github.com:froq/froq-app.git . \
    && composer install
 ```
