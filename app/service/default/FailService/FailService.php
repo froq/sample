@@ -14,7 +14,7 @@ class FailService extends Service
      */
     public function main()
     {
-        $fail = get_global('app.service.view.fail');
+        $fail = get_global('app.service.fail');
         if (!isset($fail['code'])) {
             return $this->print();
         }
