@@ -33,7 +33,7 @@ class FailService extends Service
 
     /**
      * Print.
-     * @param  mixex $fail
+     * @param  any $fail
      * @return void
      */
     public function print($fail = null)
