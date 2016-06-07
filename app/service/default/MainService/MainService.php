@@ -1,4 +1,6 @@
 <?php
+namespace Froq\App\Service;
+
 use Froq\Service\Protocol\Site as Service;
 
 /**
