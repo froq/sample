@@ -8,12 +8,12 @@ use Froq\Service\Protocol\Site as Service;
  */
 class MainService extends Service
 {
-   /**
-    * Main.
-    * @return void
-    */
-   public function main()
-   {
-      print "Hello, Froq!\n";
-   }
+    /**
+     * Main.
+     * @return void
+     */
+    public function main()
+    {
+        print "Hello, Froq!\n";
+    }
 }
