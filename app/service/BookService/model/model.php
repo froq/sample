@@ -8,6 +8,21 @@ use Froq\Database\Model\Mysql as Model;
  */
 class BookModel extends Model
 {
+    // table name & table primary for mysql
     protected $stack = 'book';
     protected $stackPrimary = 'id';
+
+    /**
+     * Init
+     * @return void
+     */
+    public function init()
+    {
+        // manipulate pager parameters
+        $this->pager
+            ->setAutorun(false)
+            ->setStart((int) app()->request->params->get('start'))
+            ->setStop((int) app()->request->params->get('stop'))
+        ;
+    }
 }
