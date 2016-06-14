@@ -1,5 +1,5 @@
 <?php
 /**
- * Should return array if this file is already put here.
+ * Should return array if you put this file here.
  */
 return [];
