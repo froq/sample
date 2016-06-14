@@ -18,11 +18,12 @@ class BookModel extends Model
      */
     public function init()
     {
-        // manipulate pager parameters
-        $this->pager
-            ->setAutorun(false)
-            ->setStart((int) app()->request->params->get('start'))
-            ->setStop((int) app()->request->params->get('stop'))
-        ;
+        // manipulate pager parameters if needed
+        // $this->pager
+        //     ->setAutorun(false)
+        //     ->setNumerateFirstLast(true)
+        //     ->setStart((int) app()->request->params->get('start'))
+        //     ->setStop((int) app()->request->params->get('stop'))
+        // ;
     }
 }
