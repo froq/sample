@@ -32,3 +32,5 @@ server {
    && git clone git@github.com:froq/froq-app.git . \
    && composer install
 ```
+
+And just open http://froq.local link.
