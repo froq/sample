@@ -24,6 +24,12 @@ server {
 }
 ```
 
+And add following line to `/etc/hosts` file.
+
+```
+127.0.0.100 froq.local
+```
+
 ### Install Skeleton
 
 ```
