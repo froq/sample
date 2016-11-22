@@ -27,6 +27,15 @@ class BookService extends Service
     }
 
     /**
+     * Fall.
+     * @return void
+     */
+    public function fall()
+    {
+        print 'Failed, method not found!';
+    }
+
+    /**
      * Main.
      * @return void
      */
