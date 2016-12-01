@@ -52,10 +52,10 @@ require('./vendor/autoload.php');
  * and returns app.
  * @var Froq\App
  */
-if (!file_exists('./../froq/src/boot.php')) {
+if (!file_exists('./vendor/froq/froq/src/boot.php')) {
     die('Froq bootstrap not found!');
 }
-$app = require('./../froq/src/boot.php');
+$app = require('./vendor/froq/froq/src/boot.php');
 
 /**
  * App env.
