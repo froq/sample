@@ -1,7 +1,7 @@
 <?php
 namespace Froq\App\Service;
 
-use Froq\Database\Model\Mysql as Model;
+use Froq\Database\Model\Oppa as Model;
 
 /**
  * Book Model.
