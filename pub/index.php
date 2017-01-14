@@ -87,8 +87,8 @@ $appConfig = require('./app/global/cfg.php');
 // });
 
 // before/after called service method
-// $this->app->events->on('service.methodBefore', func, [, funcArgs]);
-// $this->app->events->on('service.methodAfter', func, [, funcArgs]);
+// $this->app->events->on('service.before', func, [, funcArgs]);
+// $this->app->events->on('service.after', func, [, funcArgs]);
 
 /**
  * Set app env/root/config and run app.
