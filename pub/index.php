@@ -42,7 +42,7 @@ chdir(APP_DIR);
 /**
  * Include composer autoload.
  */
-if (!file_exists('./vendor/autoload.php')) {
+if (!is_file('./vendor/autoload.php')) {
     die('Composer autoloader not found!');
 }
 require('./vendor/autoload.php');
@@ -52,7 +52,7 @@ require('./vendor/autoload.php');
  * and returns app.
  * @var Froq\App
  */
-if (!file_exists('./vendor/froq/froq/src/boot.php')) {
+if (!is_file('./vendor/froq/froq/src/boot.php')) {
     die('Froq bootstrap not found!');
 }
 $app = require('./vendor/froq/froq/src/boot.php');
