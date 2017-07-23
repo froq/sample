@@ -2,4 +2,5 @@
 /**
  * BookService main view.
  */
-pre($books);
+
+// var_dump($books);

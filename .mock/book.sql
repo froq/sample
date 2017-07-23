@@ -32,7 +32,6 @@ CREATE TABLE `book` (
 
 INSERT INTO `book` (`id`, `name`, `price`) VALUES
 (1, 'PHP in Action', 16.50),
-(2, 'GO in Action', 15.25),
 
 --
 -- Indexes for dumped tables
@@ -43,13 +42,3 @@ INSERT INTO `book` (`id`, `name`, `price`) VALUES
 --
 ALTER TABLE `book`
   ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `book`
---
-ALTER TABLE `book`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;

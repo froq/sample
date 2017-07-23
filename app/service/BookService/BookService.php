@@ -49,11 +49,12 @@ class BookService extends Service
      * All.
      * @return void
      */
-    public function doAll()
+    public function doAll() // route: $root/book, $root/book/all
     {
-        $this->view('main', [
-            'books' => $this->model->findAll()
-        ]);
+        // $this->view('main', [
+        //     'data' => ['books' => $this->model->findAll()],
+        //     'meta' => ['page_title' => 'The Books']
+        // ]);
     }
 
     /**
@@ -61,10 +62,11 @@ class BookService extends Service
      * @param  int $id
      * @return void
      */
-    public function doDetail($id)
+    public function doDetail($id) // route: $root/book/detail/$id
     {
-        $this->view('main', [
-            'books' => $this->model->find($id)
-        ]);
+        // $this->view('detail', [
+        //     'data' => ['book' => $this->model->find($id)],
+        //     'meta' => ['page_title' => sprintf('Book Detail (#%d)', $id)]
+        // ]);
     }
 }
