@@ -93,8 +93,8 @@ $appConfig = require('./app/global/cfg.php');
 /**
  * Set app env/root/config and run app.
  */
-$app->setEnv($appEnv)
-    ->setRoot($appRoot)
-    ->setConfig($appConfig)
-    ->run();
-
+$app->run([
+    'env' => $appEnv,
+    'root' => $appRoot,
+    'config' => $appConfig
+]);
