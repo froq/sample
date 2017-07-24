@@ -24,7 +24,7 @@ class BookService extends Service
     public function init()
     {
         // you've set mock db already?
-        // $this->model = new BookModel($this);
+        // $this->model = new BookModel();
     }
 
     /**
