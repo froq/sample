@@ -8,6 +8,9 @@ use Froq\Database\Model\Oppa as Model;
  */
 class BookModel extends Model
 {
+    // vendor name
+    protected $vendorName = 'mysql';
+
     // table name & table primary for mysql
     protected $stack = 'book';
     protected $stackPrimary = 'id';
