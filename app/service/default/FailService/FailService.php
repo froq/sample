@@ -1,7 +1,7 @@
 <?php
 namespace Froq\App\Service;
 
-use Froq\Service\Protocol\Site as Service;
+use Froq\Service\Service\Site as Service;
 
 /**
  * Fail Service.
