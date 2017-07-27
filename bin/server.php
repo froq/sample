@@ -20,10 +20,14 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+// as current user
+// ~$ php -S localhost:8080 bin/server.php
+
+// as another user
+// ~$ sudo -u www-data php -S localhost:8080 bin/server.php
+
 // set env as local
-if (!defined('local')) {
-    define('local', true, true);
-}
+define('local', true, true);
 
 // forward all to index.php
 require(__dir__.'/../pub/index.php');
