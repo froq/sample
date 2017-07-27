@@ -40,6 +40,14 @@ define('APP_START_TIME', microtime(true));
 chdir(APP_DIR);
 
 /**
+ * Fix request scheme.
+ * @important
+ */
+if (!isset($_SERVER['REQUEST_SCHEME'])) {
+    $_SERVER['REQUEST_SCHEME'] = 'http'. (($_SERVER['SERVER_PORT'] = '443') ? 's' : '');
+}
+
+/**
  * Include composer autoload.
  */
 if (!is_file('./vendor/autoload.php')) {
