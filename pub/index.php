@@ -82,13 +82,13 @@ $appConfig = require('./app/global/cfg.php');
  * Set output handler or others.
  */
 // output handler
-// $app->events->on('app.output', function($output) {
-//    ...;
+// $app->events()->on('app.output', function($output) {
+//    return $output;
 // });
 
 // before/after called service method
-// $this->app->events->on('service.beforeRun', func, [, funcArgs]);
-// $this->app->events->on('service.afterRun', func, [, funcArgs]);
+// $app->events()->on('service.beforeRun', func, [, funcArgs]);
+// $app->events()->on('service.afterRun', func, [, funcArgs]);
 
 /**
  * Set app env/root/config and run app.
