@@ -40,7 +40,7 @@ And add following line to `/etc/hosts` file.
 ```
 And just open http://froq.local link.
 
-### Test Skeleton
+### Local Test
 ```bash
 # as current user
 ~$ php -S localhost:8080 bin/server.php
