@@ -7,7 +7,6 @@ Notice: All Froq! files / modules dependent on [Composer](https://getcomposer.or
    && git clone git@github.com:froq/froq-app.git . \
    && composer install
 ```
-And just open http://froq.local link.
 
 ### Local Test
 ```bash
@@ -49,3 +48,5 @@ And add following line to `/etc/hosts` file.
 ```
 127.0.0.100 froq.local
 ```
+
+And just open http://froq.local link.
