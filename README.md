@@ -39,4 +39,13 @@ And add following line to `/etc/hosts` file.
    && composer install
 ```
 
+### Test Skeleton
+```bash
+# as current user
+~$ php -S localhost:8080 bin/server.php
+
+# as another user
+~$ sudo -u www-data php -S localhost:8080 bin/server.php
+```
+
 And just open http://froq.local link.
