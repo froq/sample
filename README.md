@@ -1,3 +1,5 @@
+Notice: All Froq! files / modules dependent on [Composer](https://getcomposer.org/).
+
 ### Virtual Host
 
 ```
