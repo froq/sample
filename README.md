@@ -33,8 +33,7 @@ And add following line to `/etc/hosts` file.
 ### Install Skeleton
 
 ```bash
-~$ mkdir -p /var/www/froq \
-   && cd /var/www/froq \
+~$ mkdir -p /var/www/froq && cd /var/www/froq \
    && git clone git@github.com:froq/froq-app.git . \
    && composer install
 ```
