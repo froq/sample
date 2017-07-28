@@ -38,6 +38,7 @@ And add following line to `/etc/hosts` file.
    && git clone git@github.com:froq/froq-app.git . \
    && composer install
 ```
+And just open http://froq.local link.
 
 ### Test Skeleton
 ```bash
@@ -47,5 +48,3 @@ And add following line to `/etc/hosts` file.
 # as another user
 ~$ sudo -u www-data php -S localhost:8080 bin/server.php
 ```
-
-And just open http://froq.local link.
