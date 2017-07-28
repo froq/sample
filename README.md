@@ -1,5 +1,23 @@
 Notice: All Froq! files / modules dependent on [Composer](https://getcomposer.org/).
 
+### Install Skeleton
+
+```bash
+~$ mkdir -p /var/www/froq && cd /var/www/froq \
+   && git clone git@github.com:froq/froq-app.git . \
+   && composer install
+```
+And just open http://froq.local link.
+
+### Local Test
+```bash
+# as current user
+~$ php -S localhost:8080 bin/server.php
+
+# as another user
+~$ sudo -u www-data php -S localhost:8080 bin/server.php
+```
+
 ### Virtual Host
 
 ```
@@ -30,22 +48,4 @@ And add following line to `/etc/hosts` file.
 
 ```
 127.0.0.100 froq.local
-```
-
-### Install Skeleton
-
-```bash
-~$ mkdir -p /var/www/froq && cd /var/www/froq \
-   && git clone git@github.com:froq/froq-app.git . \
-   && composer install
-```
-And just open http://froq.local link.
-
-### Local Test
-```bash
-# as current user
-~$ php -S localhost:8080 bin/server.php
-
-# as another user
-~$ sudo -u www-data php -S localhost:8080 bin/server.php
 ```
