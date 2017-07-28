@@ -1,6 +1,6 @@
 {
-    "name": "froq/froq-app",
-    "homepage": "https://github.com/froq/froq-app",
+    "name": "froq/skeleton",
+    "homepage": "https://github.com/froq/skeleton",
     "description":  "Skeleton part of Froq!",
     "keywords": ["froq", "skeleton"],
     "license": "GNU General Public License v3.0",
