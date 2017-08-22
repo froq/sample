@@ -4,7 +4,7 @@ Notice: All Froq! files / modules dependent on [Composer](https://getcomposer.or
 
 ```bash
 ~$ mkdir -p /var/www/froq && cd /var/www/froq \
-   && git clone git@github.com:froq/froq-app.git . \
+   && git clone git@github.com:froq/skeleton.git . \
    && composer install
 ```
 
