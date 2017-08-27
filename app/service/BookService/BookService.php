@@ -2,6 +2,7 @@
 namespace Froq\App\Service;
 
 use Froq\Service\Service\Site as Service;
+// use Froq\App\Database\BookModel;
 
 /**
  * Book Service.

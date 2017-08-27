@@ -1,5 +1,5 @@
 <?php
-namespace Froq\App\Service;
+namespace Froq\App\Database;
 
 use Froq\Database\Model\Oppa as Model;
 
