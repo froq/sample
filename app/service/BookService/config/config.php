@@ -1,13 +1,13 @@
 <?php
 /**
- * Should return array if you put this file here.
+ * Must return an array if this file is here.
  */
 
-/* // keep globals clean..
-return (function () {
-    $cfg = [];
-
-    // add -service specific- options here
-
-    return $cfg;
-})(); */
+// // keep globals clean..
+// return (function () {
+//     $cfg = [];
+//
+//     // add -service specific- options here
+//
+//     return $cfg;
+// })();
