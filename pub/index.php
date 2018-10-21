@@ -44,7 +44,7 @@ chdir(APP_DIR);
  * @important
  */
 if (!isset($_SERVER['REQUEST_SCHEME'])) {
-    $_SERVER['REQUEST_SCHEME'] = 'http'. (($_SERVER['SERVER_PORT'] = '443') ? 's' : '');
+    $_SERVER['REQUEST_SCHEME'] = 'http'. (($_SERVER['SERVER_PORT'] == '443') ? 's' : '');
 }
 
 /**
