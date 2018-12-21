@@ -47,25 +47,25 @@ chdir(APP_DIR);
  * @important
  */
 if (!isset($_SERVER['REQUEST_SCHEME'])) {
-    $_SERVER['REQUEST_SCHEME'] = 'http'. (($_SERVER['SERVER_PORT'] == '443') ? 's' : '');
+    $_SERVER['REQUEST_SCHEME'] = 'http'. ($_SERVER['SERVER_PORT'] == '443' ? 's' : '');
 }
 
 /**
  * Include composer autoload.
  */
-if (!is_file('./vendor/autoload.php')) {
+if (!file_exists('./vendor/autoload.php')) {
     die('Composer autoloader not found!');
 }
-require('./vendor/autoload.php');
+require './vendor/autoload.php';
 
 /**
  * Include bootstrap that registers Autoload and returns app.
  * @var Froq\App
  */
-if (!is_file('./vendor/froq/froq/src/boot.php')) {
+if (!file_exists('./vendor/froq/froq/src/boot.php')) {
     die('Froq bootstrap not found!');
 }
-$app = require('./vendor/froq/froq/src/boot.php');
+$app = require './vendor/froq/froq/src/boot.php';
 
 /**
  * App env.
@@ -86,7 +86,7 @@ $appRoot = '/';
  * User app config.
  * @var array
  */
-$appConfig = require('./app/global/cfg.php');
+$appConfig = require './app/global/cfg.php';
 
 /**
  * Set output handler or others.
