@@ -10,7 +10,7 @@ return (function() {
     // aliases
     // $cfg['service.aliases']['foo'] = ['<REAL_SERVICE_NAME>', 'methods' => ['bar' => '<REAL_SERVICE_METHOD_NAME>']];
     // regexp aliases
-    // $cfg['service.aliases']['@@@'][] = ['<REAL_SERVICE_NAME>', 'method' => '<REAL_SERVICE_METHOD_NAME>', 'pattern' => '~^/[\w-]+/(\d+)$~i'];
+    // $cfg['service.aliases']['~~'][] = ['<REAL_SERVICE_NAME>', 'method' => '<REAL_SERVICE_METHOD_NAME>', 'pattern' => '~^/[\w-]+/(\d+)$~i'];
 
     // session save handler
     // $cfg['session']['saveHandler'] = '\My\Session\SaveHandler'; // or
