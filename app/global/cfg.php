@@ -12,9 +12,9 @@ return (function() {
     // regexp aliases
     // $cfg['app.service.aliases']['@@@'][] = ['<REAL_SERVICE_NAME>', 'method' => '<REAL_SERVICE_METHOD_NAME>', 'pattern' => '~^/[\w-]+/(\d+)$~i'];
 
-    // session handler
-    // $cfg['app.session.cookie']['handler'] = '\My\Session\Handler'; // or
-    // $cfg['app.session.cookie']['handler'] = ['\My\Session\Handler', '/my/session/handler.php'];
+    // session save handler
+    // $cfg['app.session']['saveHandler'] = '\My\Session\SaveHandler'; // or
+    // $cfg['app.session']['saveHandler'] = ['\My\Session\SaveHandler', '/my/session/save-handler.php'];
 
     // logger
     $cfg['app.logger']['level'] = Froq\Logger\Logger::FAIL | Froq\Logger\Logger::WARN;
