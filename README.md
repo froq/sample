@@ -6,10 +6,6 @@ Notice: All Froq! files / modules dependent on [Composer](https://getcomposer.or
 ~$ mkdir -p /to/the/froq-project && cd /to/the/froq-project \
    && git clone git@github.com:froq/skeleton.git . \
    && composer install
-
-# or
-
-/to/the/froq-project$ composer require froq/skeleton
 ```
 
 ### Local Test
