@@ -11,5 +11,5 @@
         "php": "^7.2",
         "froq/froq": "dev-master"
     },
-    "minimum-stability": "dev-master"
+    "minimum-stability": "dev"
 }
