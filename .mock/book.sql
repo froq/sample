@@ -22,7 +22,7 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`id`, `name`, `price`) VALUES
-(1, 'PHP in Action', 16.50),
+(1, 'PHP in Action', 16.50);
 
 --
 -- Indexes for dumped tables
