@@ -3,9 +3,13 @@ Notice: All Froq! files / modules dependent on [Composer](https://getcomposer.or
 ### Install Skeleton
 
 ```bash
-~$ mkdir -p /var/www/froq && cd /var/www/froq \
+~$ mkdir -p /to/the/froq-project && cd /to/the/froq-project \
    && git clone git@github.com:froq/skeleton.git . \
    && composer install
+
+# or
+
+/to/the/froq-project$ composer require froq/skeleton
 ```
 
 ### Local Test
@@ -22,9 +26,9 @@ Notice: All Froq! files / modules dependent on [Composer](https://getcomposer.or
 ```
 # Apache
 <VirtualHost *:80>
-  ServerName froq.local
-  DocumentRoot /var/www/froq/pub
-  <Directory /var/www/froq/pub>
+  ServerName froq-project.local
+  DocumentRoot /to/the/froq-project/pub
+  <Directory /to/the/froq-project/pub>
     Options +FollowSymLinks
     AllowOverride All
     Require all granted
@@ -34,8 +38,8 @@ Notice: All Froq! files / modules dependent on [Composer](https://getcomposer.or
 # Nginx
 server {
   index index.php;
-  server_name froq.local;
-  root /var/www/froq/pub;
+  server_name froq-project.local;
+  root /to/the/froq-project/pub;
   location / {
     try_files $uri $uri/ /index.php?$args;
   }
@@ -46,7 +50,7 @@ server {
 And add following line to `/etc/hosts` file.
 
 ```
-127.0.0.100 froq.local
+127.0.0.100 froq-project.local
 ```
 
-And just open http://froq.local link.
+And just open http://froq-project.local link.
