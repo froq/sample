@@ -9,7 +9,7 @@
     ],
     "require": {
         "php": "^7.2",
-        "froq/froq": "dev-master"
+        "froq/froq": "3.0.0-dev"
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "stabile"
 }
