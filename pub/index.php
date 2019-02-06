@@ -36,75 +36,73 @@ define('APP_DIR', dirname(__dir__));
  */
 define('APP_START_TIME', microtime(true));
 
-/**
- * Set everything as relative to the app dir.
- * @important
- */
+// Set everything as relative to the app dir.
 chdir(APP_DIR);
 
-/**
- * Fix request scheme.
- * @important
- */
+// Fix request scheme.
 if (!isset($_SERVER['REQUEST_SCHEME'])) {
     $_SERVER['REQUEST_SCHEME'] = 'http'. ($_SERVER['SERVER_PORT'] == '443' ? 's' : '');
 }
 
-/**
- * Include composer autoload.
- */
+// Include composer autoload.
 if (!file_exists('./vendor/autoload.php')) {
-    die('Composer autoloader not found!');
+    die('Composer autoload file not found!');
 }
 require './vendor/autoload.php';
 
 /**
- * Include bootstrap that registers Autoload and returns app.
- * @var Froq\App
+ * Wrapper.
+ * @private
  */
-if (!file_exists('./vendor/froq/froq/src/boot.php')) {
-    die('Froq bootstrap not found!');
-}
-$app = require './vendor/froq/froq/src/boot.php';
+(function() {
+    // Include bootstrap that registers Autoload and returns app.
+    if (!file_exists('./vendor/froq/froq/src/boot.php')) {
+        die('Froq boot file not found!');
+    }
 
-/**
- * App env.
- * @var string
- */
-$appEnv = Froq\App::ENV_PRODUCTION;
-if (is_local()) {
-    $appEnv = Froq\App::ENV_DEV;
-}
+    /**
+     * App.
+     * @var Froq\App
+     */
+    $app = require './vendor/froq/froq/src/boot.php';
 
-/**
- * App root.
- * @var string
- */
-$appRoot = '/';
+    /**
+     * App env.
+     * @var string
+     */
+    $appEnv = Froq\App::ENV_PRODUCTION;
+    if (is_local()) {
+        $appEnv = Froq\App::ENV_DEV;
+    }
 
-/**
- * User app config.
- * @var array
- */
-$appConfig = require './app/global/cfg.php';
+    /**
+     * App root.
+     * @var string
+     */
+    $appRoot = '/';
 
-/**
- * Set output handler or others.
- */
-// output handler
-// $app->events()->on('app.output', function($output) {
-//    return $output;
-// });
+    /**
+     * App config.
+     * @var array
+     */
+    $appConfig = require './app/global/cfg.php';
 
-// before/after called service method
-// $app->events()->on('service.beforeRun', func, [, funcArgs]);
-// $app->events()->on('service.afterRun', func, [, funcArgs]);
+    /**
+     * Set output handler or others.
+     */
+    // output handler
+    // $app->events()->on('app.output', function($output) {
+    //    return $output;
+    // });
 
-/**
- * Set app env/root/config and run app.
- */
-$app->run([
-    'env' => $appEnv,
-    'root' => $appRoot,
-    'config' => $appConfig
-]);
+    // before/after called service method
+    // $app->events()->on('service.beforeRun', func, [, funcArgs]);
+    // $app->events()->on('service.afterRun', func, [, funcArgs]);
+
+    // Set app env/root/config and run app.
+    $app->run([
+        'env' => $appEnv,
+        'root' => $appRoot,
+        'config' => $appConfig
+    ]);
+})();
