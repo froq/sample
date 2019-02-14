@@ -33,4 +33,4 @@
 define('local', true, true);
 
 // forward all to index.php
-require __dir__.'/../pub/index.php';
+require __dir__ .'/../pub/index.php';
