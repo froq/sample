@@ -1,7 +1,7 @@
 <?php
-namespace Froq\App\Service;
+namespace froq\app\service;
 
-use Froq\Service\Service\Site as Service;
+use froq\service\service\Site as Service;
 
 /**
  * Main Service

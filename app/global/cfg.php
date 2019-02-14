@@ -17,7 +17,7 @@ return (function() {
     // $cfg['session']['saveHandler'] = ['\My\Session\SaveHandler', '/my/session/save-handler.php'];
 
     // logger
-    $cfg['logger']['level'] = Froq\Logger\Logger::FAIL | Froq\Logger\Logger::WARN;
+    $cfg['logger']['level'] = froq\logger\Logger::FAIL | froq\logger\Logger::WARN;
 
     return $cfg;
 })();

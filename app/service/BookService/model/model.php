@@ -1,7 +1,7 @@
 <?php
-namespace Froq\App\Database;
+namespace froq\app\database;
 
-use Froq\Database\Model\Oppa as Model;
+use froq\database\model\Oppa as Model;
 
 /**
  * Book Model.

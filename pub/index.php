@@ -62,7 +62,7 @@ require './vendor/autoload.php';
 
     /**
      * App.
-     * @var Froq\App
+     * @var froq\App
      */
     $app = require './vendor/froq/froq/src/boot.php';
 
@@ -70,9 +70,9 @@ require './vendor/autoload.php';
      * App env.
      * @var string
      */
-    $appEnv = Froq\App::ENV_PRODUCTION;
+    $appEnv = froq\App::ENV_PRODUCTION;
     if (is_local()) {
-        $appEnv = Froq\App::ENV_DEV;
+        $appEnv = froq\App::ENV_DEV;
     }
 
     /**

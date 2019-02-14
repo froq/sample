@@ -1,8 +1,8 @@
 <?php
-namespace Froq\App\Service;
+namespace froq\app\service;
 
-use Froq\Service\Service\Site as Service;
-// use Froq\App\Database\BookModel;
+use froq\service\service\Site as Service;
+// use froq\app\database\BookModel;
 
 /**
  * Book Service.
