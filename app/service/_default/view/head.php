@@ -1,4 +1,4 @@
 <?php
 /**
- * Default head view file.
+ * Default head file.
  */

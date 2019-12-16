@@ -1,4 +1,4 @@
 <?php
 /**
- * Default foot view file.
+ * Default foot file.
  */
