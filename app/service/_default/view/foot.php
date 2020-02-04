@@ -1,4 +1,0 @@
-<?php
-/**
- * Default foot file.
- */

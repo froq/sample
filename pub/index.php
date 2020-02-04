@@ -22,57 +22,51 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-ob_start();
 
-/**
- * App dir.
- * @const string
- */
+// Define app dir & start time.
 define('APP_DIR', dirname(__dir__));
-
-/**
- * App start time.
- * @const float
- */
 define('APP_START_TIME', microtime(true));
 
-// Set everything as relative to the app dir.
-chdir(APP_DIR);
-
-// Fix request scheme.
-if (!isset($_SERVER['REQUEST_SCHEME'])) {
-    $_SERVER['REQUEST_SCHEME'] = 'http'. ($_SERVER['SERVER_PORT'] == '443' ? 's' : '');
-}
-
 // Include composer autoload.
-if (!file_exists('./vendor/autoload.php')) {
+if (!is_file(APP_DIR .'/vendor/autoload.php')) {
     die('Composer autoload file not found!');
 }
-require './vendor/autoload.php';
+require APP_DIR .'/vendor/autoload.php';
 
 /**
  * Wrapper.
  * @private
  */
 (function() {
-    // Include bootstrap that registers Autoload and returns app.
-    if (!file_exists('./vendor/froq/froq/src/boot.php')) {
-        die('Froq boot file not found!');
+    // Include autoloader file and registers Autoloader.
+    if (!is_file($file = (APP_DIR .'/vendor/froq/froq/src/Autoloader.php'))) {
+        die('Froq autoloader file "'. $file .'" not found!');
+    }
+
+    require $file;
+
+    // Register autoloader.
+    $autoloader = froq\Autoloader::init();
+    $autoloader->register();
+
+    // Include initial file that returns App.
+    if (!is_file($file = (APP_DIR .'/vendor/froq/froq/src/init.php'))) {
+        die('Froq init file "'. $file .'" not found!');
     }
 
     /**
      * App.
      * @var froq\App
      */
-    $app = require './vendor/froq/froq/src/boot.php';
+    $app = require $file;
 
     /**
      * App env.
      * @var string
      */
-    $appEnv = froq\App::ENV_PRODUCTION;
-    if (is_local()) {
-        $appEnv = froq\App::ENV_DEV;
+    $appEnv = froq\Env::PRODUCTION;
+    if (local) {
+        $appEnv = froq\Env::DEV;
     }
 
     /**
@@ -82,27 +76,38 @@ require './vendor/autoload.php';
     $appRoot = '/';
 
     /**
-     * App config.
+     * App configs.
      * @var array
      */
-    $appConfig = require './app/global/cfg.php';
+    $appConfigs = is_file('./app/config/config-'. $appEnv .'.php')
+        ? require './app/config/config-'. $appEnv .'.php'
+        : require './app/config/config.php';
 
-    /**
-     * Set output handler or others.
-     */
-    // output handler
-    // $app->events()->on('app.output', function($output) {
-    //    return $output;
-    // });
+    // Error handler.
+    // $app->events()->on('app.error', function ($error) { .. });
 
-    // before/after called service method
-    // $app->events()->on('service.beforeRun', func, [, funcArgs]);
-    // $app->events()->on('service.afterRun', func, [, funcArgs]);
+    // Output handler.
+    // $app->events()->on('app.output', function($output) { .. });
 
-    // Set app env/root/config and run app.
-    $app->run([
-        'env' => $appEnv,
-        'root' => $appRoot,
-        'config' => $appConfig
-    ]);
+    // Before/after handlers.
+    // $app->events()->on('app.before', function () { .. });
+    // $app->events()->on('app.after', function () { .. });
+
+    // Shortcut routes.
+    // $app->get('/book/:id', 'Book.show');
+    // $app->get('/book/:id', function () { .. });
+
+
+    // Run app.
+    try {
+        $app->run(['env' => $appEnv, 'root' => $appRoot, 'configs' => $appConfigs]);
+    } catch (Throwable $error) {
+
+        // This will be sent to shutdown.
+        if (local) {
+            throw $error;
+        }
+
+        $app->error($error);
+    }
 })();
