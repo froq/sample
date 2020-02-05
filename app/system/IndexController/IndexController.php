@@ -42,4 +42,13 @@ class IndexController extends Controller
             print "Code: ". $e->getCode();
         }
     }
+
+    /**
+     * Favicon action.
+     * @return void
+     */
+    public function faviconAction()
+    {
+        $this->app->response()->setStatus(404)->setBody(null, ['type' => 'n/a']);
+    }
 }

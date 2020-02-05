@@ -7,5 +7,5 @@ return [
     ['/', 'Index'],
     ['/error', 'Index.error'],
 
-    ['/favicon\.ico', ['GET' => 'Index.error']],
+    ['/favicon.ico', ['GET' => 'Index.favicon']],
 ];
