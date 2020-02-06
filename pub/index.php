@@ -79,9 +79,9 @@ require APP_DIR .'/vendor/autoload.php';
      * App configs.
      * @var array
      */
-    $appConfigs = is_file('./app/config/config-'. $appEnv .'.php')
-        ? require './app/config/config-'. $appEnv .'.php'
-        : require './app/config/config.php';
+    $appConfigs = is_file(APP_DIR .'/app/config/config-'. $appEnv .'.php')
+        ? require APP_DIR .'/app/config/config-'. $appEnv .'.php'
+        : require APP_DIR .'/app/config/config.php';
 
     // Error handler.
     // $app->events()->on('app.error', function ($error) { .. });
