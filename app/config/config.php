@@ -32,7 +32,7 @@ return [
     ],
 
     // Initial response cookies.
-    // 'cookies'  => [name => [value, ?options]],
+    // 'cookies'  => [name => [value, ?[options]]],
 
     // Session options.
     'session'  => [],
@@ -45,6 +45,12 @@ return [
     //         'lifetime' => 0,     'path'     => '/',   'domain'   => '',
     //         'secure'   => false, 'httponly' => false, 'samesite' => '', // PHP/7.3.
     //     ],
+    // ],
+
+    // Database options.
+    // 'database'    => [
+    //     'dsn'  => '...',
+    //     'user' => '', 'pass' => '', 'profile' => true or false,
     // ],
 
     // View options.
