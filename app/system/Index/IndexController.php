@@ -8,6 +8,7 @@ use froq\mvc\Controller;
  */
 class IndexController extends Controller
 {
+    /** @var bool */
     // public bool $useView = true;
     // public bool $useModel = true;
     // public bool $useSession = true;
