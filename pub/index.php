@@ -65,7 +65,7 @@ require APP_DIR .'/vendor/autoload.php';
      * @var string
      */
     $appEnv = froq\Env::PRODUCTION;
-    if (local) {
+    if (__local__) {
         $appEnv = froq\Env::DEV;
     }
 
@@ -104,7 +104,7 @@ require APP_DIR .'/vendor/autoload.php';
     } catch (Throwable $error) {
 
         // This will be sent to shutdown.
-        if (local) {
+        if (__local__) {
             throw $error;
         }
 
