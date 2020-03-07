@@ -1,9 +1,9 @@
 <?php
 // As current user.
-// ~$ php -S localhost:8080 bin/server.php
+// ~$ php -S localhost:8080 -t pub/ bin/server.php
 
 // As another user (i.e. www-data).
-// ~$ sudo -u www-data php -S localhost:8080 bin/server.php
+// ~$ sudo -u www-data php -S localhost:8080 -t pub/ bin/server.php
 
 if (PHP_SAPI != 'cli-server') {
     die('This file must be run via cli-server only.');
