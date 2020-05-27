@@ -4,6 +4,13 @@
  */
 
 return [
+    // Note: dot (.) notations are valid.
+    // With dots.
+    // 'response.json.flags' => JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE,
+    // 'response.json' => ['flags' => JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE],
+    // Without dots.
+    // 'response' => ['json' => ['flags' => JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE]],
+
     // Routes & services.
     'routes'   => include 'routes.php',
     'services' => include 'services.php',
@@ -34,7 +41,13 @@ return [
     // Initial response cookies.
     // 'cookies'  => [name => [value, ?[options]]],
 
-    // Session options.
+    // Logger options.
+    // 'logger' => [
+    //     'level'     => froq\logger\Logger::ERROR | froq\logger\Logger::WARN,
+    //     'directory' => APP_DIR .'/tmp/log',
+    // ],
+
+    // Session options ([] = use default options).
     'session'  => [],
     // With custom options.
     // 'session'  => [
@@ -47,16 +60,24 @@ return [
     //     ],
     // ],
 
+    // Response options.
+    // 'response.gzip'           => true,
+    // 'response.xml'            => ['indent' => true, 'indentString' => ' '],
+    // 'response.image'          => ['jpegQuality' => 75, 'webpQuality' => 75],
+    // 'response.json.flags'     => JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE,
+    // 'response.file.rateLimit' => 1024 ** 2, // 1024KB
+
     // Database options.
     // 'database'    => [
     //     'dsn'  => '...',
     //     'user' => '', 'pass' => '', 'profile' => true or false,
     // ],
 
+    // Route options.
+    // 'route' => ['unicode' => true, 'decodeUri' => true, 'endingSlashes' => false],
+
     // View options.
-    // 'view'     => [
-    //     'layout' => '/path/to/the_layout_file.php',
-    // ],
+    // 'view.layout' => APP_DIR .'/app/global/layout.php',
 
     // Misc options.
     'exposeAppRuntime' => true, // true=all, false=none or 'dev','test','stage','production'

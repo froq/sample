@@ -50,6 +50,6 @@ class IndexController extends Controller
      */
     public function faviconAction()
     {
-        $this->app->response()->setStatus(404)->setBody(null, ['type' => 'n/a']);
+        $this->response(404, null, ['type' => 'n/a']);
     }
 }
