@@ -1,4 +1,0 @@
-<?php
-/**
- * Default head file.
- */
