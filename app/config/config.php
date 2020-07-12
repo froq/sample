@@ -27,15 +27,16 @@ return [
 
     // Initial response headers (null means remove).
     'headers'  => [
-        'Expires'                => 'Thu, 19 Nov 1981 08:10:00 GMT',
+        // Cache (https://stackoverflow.com/questions/49547/how-do-we-control-web-page-caching-across-all-browsers).
         'Cache-Control'          => 'no-cache, no-store, must-revalidate, max-age=0, pre-check=0, post-check=0',
         'Pragma'                 => 'no-cache',
-        'Connection'             => 'close',
+        'Expires'                => '0',
+        // 'Connection'             => 'close',
         'X-Powered-By'           => 'Froq!',
-        // Security (@see https://www.owasp.org/index.php/List_of_useful_HTTP_headers).
-        'X-Frame-Options'        => 'SAMEORIGIN',
-        'X-XSS-Protection'       => '1; mode=block',
+        // Security (https://www.owasp.org/index.php/List_of_useful_HTTP_headers).
         'X-Content-Type-Options' => 'nosniff',
+        'X-Frame-Options'        => 'sameorigin',
+        'X-XSS-Protection'       => '1; mode=block',
     ],
 
     // Initial response cookies.
@@ -49,10 +50,10 @@ return [
 
     // Session options ([] = use default options).
     'session'  => [],
-    // With custom options.
+    // With custom options (below is default).
     // 'session'  => [
     //     'name'        => 'SID',
-    //     'hash'        => true, 'hashLength'  => 40, // ID length, 32 or 40 only.
+    //     'hash'        => true, 'hashLength'  => 40, // ID length: 16, 32 or 40 only.
     //     'savePath'    => null, 'saveHandler' => null,
     //     'cookie'      => [
     //         'lifetime' => 0,     'path'     => '/',   'domain'   => '',
