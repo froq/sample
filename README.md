@@ -3,18 +3,23 @@ Notice: All Froq! files / modules dependent on [Composer](https://getcomposer.or
 ### Install Skeleton
 
 ```bash
-~$ mkdir -p /to/the/froq-project && cd /to/the/froq-project \
-   && git clone git@github.com:froq/skeleton.git . \
-   && composer install
+~$ mkdir -p /to/the/froq-project ; cd /to/the/froq-project \
+   ; git clone git@github.com:froq/skeleton.git . \
+   ; rm -rf ./.git/ ./LICENSE ./README.md \
+   ; composer install
 ```
 
 ### Local Test
 ```bash
 # as current user
 ~$ php -S localhost:8080 bin/server.php
+# or with public (static) directory
+~$ php -S localhost:8080 -t pub/ bin/server.php
 
 # as another user
 ~$ sudo -u www-data php -S localhost:8080 bin/server.php
+# or with public (static) directory
+~$ sudo -u www-data php -S localhost:8080 -t pub/ bin/server.php
 ```
 
 ### Virtual Host
