@@ -87,7 +87,7 @@ require APP_DIR .'/vendor/autoload.php';
     // $app->events()->on('app.error', function ($error) { .. });
 
     // Output handler.
-    // $app->events()->on('app.output', function($output) { .. });
+    // $app->events()->on('app.output', function ($output) { .. });
 
     // Before/after handlers.
     // $app->events()->on('app.before', function () { .. });
