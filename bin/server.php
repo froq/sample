@@ -13,7 +13,7 @@ $_pub = realpath(__dir__ . '/../pub');
 $_uri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
 
 // Check for static files.
-if (file_exists($_pub . $_uri)) {
+if ($_uri != '/' && file_exists($_pub . $_uri)) {
     return false;
 }
 
