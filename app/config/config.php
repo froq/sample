@@ -4,16 +4,14 @@
  */
 
 return [
-    // Note: dot (.) notations are valid.
-    // With dots.
-    // 'response.json.flags' => JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE,
-    // 'response.json' => ['flags' => JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE],
-    // Without dots.
-    // 'response' => ['json' => ['flags' => JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE]],
+    // Note: dot (.) notations are valid for base keys.
+    // With/without dots.
+    // 'response' => ['json' => ['flags' => JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE]]
+    // 'response.json' => ['flags' => JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE]
 
     // Routes & services.
     'routes'   => include 'routes.php',
-    'services' => include 'services.php',
+    // 'services' => include 'services.php',
 
     // Protocols.
     'http'     => 'http://'. $_SERVER['SERVER_NAME'],
@@ -49,33 +47,33 @@ return [
     // ],
 
     // Session options ([] = use default options).
-    'session'  => [],
+    // 'session'  => [],
     // With custom options (below is default).
     // 'session'  => [
     //     'name'        => 'SID',
-    //     'hash'        => true, 'hashLength'  => 40, // ID length: 16, 32 or 40 only.
+    //     'hash'        => bool, 'hashLength'  => 40, // ID length: 16, 32 or 40 only.
     //     'savePath'    => null, 'saveHandler' => null,
     //     'cookie'      => [
     //         'lifetime' => 0,     'path'     => '/',   'domain'   => '',
-    //         'secure'   => false, 'httponly' => false, 'samesite' => '', // PHP/7.3.
+    //         'secure'   => bool,  'httponly' => bool,  'samesite' => '',
     //     ],
     // ],
 
     // Response options.
-    // 'response.gzip'           => true,
-    // 'response.xml'            => ['indent' => true, 'indentString' => ' '],
+    // 'response.gzip'           => bool or ['minlen' => 64 (in kb) ...],
+    // 'response.xml'            => ['indent' => bool, 'indentString' => ' '],
+    // 'response.json'           => ['flags' => JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES],
     // 'response.image'          => ['jpegQuality' => 75, 'webpQuality' => 75],
-    // 'response.json.flags'     => JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE,
     // 'response.file.rateLimit' => 1024 ** 2, // 1024KB
 
     // Database options.
     // 'database'    => [
     //     'dsn'  => '...',
-    //     'user' => '', 'pass' => '', 'profile' => true or false,
+    //     'user' => '', 'pass' => '', 'profile' => bool,
     // ],
 
     // Route options.
-    // 'route' => ['unicode' => true, 'decodeUri' => true, 'endingSlashes' => false],
+    // 'route' => ['unicode' => bool, 'decodeUri' => bool, 'endingSlashes' => bool],
 
     // View options.
     // 'view.layout' => APP_DIR .'/app/global/layout.php',
