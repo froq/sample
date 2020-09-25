@@ -37,7 +37,7 @@ require APP_DIR .'/vendor/autoload.php';
  * Wrapper.
  * @private
  */
-(function() {
+(function () {
     // Include autoloader file and registers Autoloader.
     if (!is_file($file = (APP_DIR .'/vendor/froq/froq/src/Autoloader.php'))) {
         die('Froq autoloader file "'. $file .'" not found!');
