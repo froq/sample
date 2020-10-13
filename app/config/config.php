@@ -73,7 +73,8 @@ return [
     // ],
 
     // Cache options.
-    // 'cache' => ['static' => bool, 'agent' => ['id' => string, 'name' => string, 'options' => array]]
+    // 'cache' => ['id' => string, 'agent' => ['id' => string, 'name' => string, 'static' => bool,
+        // 'options' => ['ttl' => int, ...]]],
 
     // Route options.
     // 'route' => ['unicode' => bool, 'decodeUri' => bool, 'endingSlashes' => bool],
