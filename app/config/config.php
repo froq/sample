@@ -72,6 +72,9 @@ return [
     //     'user' => '', 'pass' => '', 'profile' => bool,
     // ],
 
+    // Cache options.
+    // 'cache' => ['agent' => string, 'static' => bool|true, 'ttl' => int|null],
+
     // Route options.
     // 'route' => ['unicode' => bool, 'decodeUri' => bool, 'endingSlashes' => bool],
 
