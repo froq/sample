@@ -76,8 +76,9 @@ return [
     // 'cache' => ['id' => string, 'agent' => ['id' => string, 'name' => string, 'static' => bool,
         // 'options' => ['ttl' => int, ...]]],
 
-    // Route options.
-    // 'route' => ['unicode' => bool, 'decodeUri' => bool, 'endingSlashes' => bool],
+    // Router options.
+    // 'router' => ['defaultController' => string, 'defaultAction' => string,
+    //              'unicode' => bool, 'decodeUri' => bool, 'endingSlashes' => bool],
 
     // View options.
     // 'view.layout' => APP_DIR .'/app/global/layout.php',
