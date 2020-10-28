@@ -64,7 +64,7 @@ return [
     // 'response.xml'            => ['indent' => bool, 'indentString' => ' '],
     // 'response.json'           => ['flags' => JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES],
     // 'response.image'          => ['jpegQuality' => 75, 'webpQuality' => 75],
-    // 'response.file.rateLimit' => 1024 ** 2, // 1024KB
+    // 'response.file.rateLimit' => 1024 ** 2, // 1MB
 
     // Database options.
     // 'database'    => [
