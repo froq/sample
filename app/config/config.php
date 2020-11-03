@@ -80,6 +80,9 @@ return [
     // 'router' => ['defaultController' => string, 'defaultAction' => string,
     //              'unicode' => bool, 'decodeUri' => bool, 'endingSlashes' => bool],
 
+    // Models.
+    // 'model.namespace' => string,
+
     // Dotenv.
     // 'dotenv' => ['file' => string, 'global' => bool],
 
