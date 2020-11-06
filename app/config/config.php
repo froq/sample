@@ -81,7 +81,7 @@ return [
     //              'unicode' => bool, 'decodeUri' => bool, 'endingSlashes' => bool],
 
     // Models.
-    // 'model.namespace' => string,
+    // 'model.namespace' => string or 'model' => ['namespace' => string, 'map' => [string => string]]
 
     // Dotenv.
     // 'dotenv' => ['file' => string, 'global' => bool],
