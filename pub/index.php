@@ -1,9 +1,4 @@
 <?php
-/**
- * Copyright (c) 2015 · Kerem Güneş
- * Apache License 2.0 <https://opensource.org/licenses/apache-2.0>
- */
-
 // Define app dir & start time.
 define('APP_DIR', dirname(__dir__));
 define('APP_START_TIME', microtime(true));
@@ -14,81 +9,73 @@ if (!is_file(APP_DIR .'/vendor/autoload.php')) {
 }
 require APP_DIR .'/vendor/autoload.php';
 
+// Include autoloader file and registers Autoloader.
+if (!is_file($file = (APP_DIR .'/vendor/froq/froq/src/Autoloader.php'))) {
+    die('Froq autoloader file "'. $file .'" not found!');
+}
+
+require $file;
+
+// Register autoloader.
+$autoloader = froq\Autoloader::init();
+$autoloader->register();
+
+// Include initial file that returns App.
+if (!is_file($file = (APP_DIR .'/vendor/froq/froq/src/init.php'))) {
+    die('Froq init file "'. $file .'" not found!');
+}
+
 /**
- * Wrapper.
- * @private
+ * App.
+ * @var froq\App
  */
-(function () {
-    // Include autoloader file and registers Autoloader.
-    if (!is_file($file = (APP_DIR .'/vendor/froq/froq/src/Autoloader.php'))) {
-        die('Froq autoloader file "'. $file .'" not found!');
-    }
+$app = require $file;
 
-    require $file;
+/**
+ * App env.
+ * @var string
+ */
+$app_env = __local__ ? froq\Env::DEVELOPMENT
+                     : froq\Env::PRODUCTION;
 
-    // Register autoloader.
-    $autoloader = froq\Autoloader::init();
-    $autoloader->register();
+/**
+ * App root.
+ * @var string
+ */
+$app_root = '/';
 
-    // Include initial file that returns App.
-    if (!is_file($file = (APP_DIR .'/vendor/froq/froq/src/init.php'))) {
-        die('Froq init file "'. $file .'" not found!');
-    }
+/**
+ * App configs.
+ * @var array
+ */
+$app_configs = is_file(APP_DIR .'/app/config/config-'. $app_env .'.php')
+    ? require APP_DIR .'/app/config/config-'. $app_env .'.php'
+    : require APP_DIR .'/app/config/config.php';
 
-    /**
-     * App.
-     * @var froq\App
-     */
-    $app = require $file;
+// Error handler.
+// $app->events()->on('app.error', function ($error) { .. });
 
-    /**
-     * App env.
-     * @var string
-     */
-    $appEnv = froq\Env::PRODUCTION;
+// Output handler.
+// $app->events()->on('app.output', function ($output) { .. });
+
+// Before/after handlers.
+// $app->events()->on('app.before', function () { .. });
+// $app->events()->on('app.after', function () { .. });
+
+// Shortcut routes.
+// $app->get('/book/:id', 'Book.show');
+// $app->get('/book/:id', function () { .. });
+
+
+// Run app.
+try {
+    $app->run(['env' => $app_env, 'root' => $app_root, 'configs' => $app_configs]);
+} catch (Throwable $error) {
+
+    // This will be sent to shutdown.
     if (__local__) {
-        $appEnv = froq\Env::DEV;
+        throw $error;
     }
 
-    /**
-     * App root.
-     * @var string
-     */
-    $appRoot = '/';
-
-    /**
-     * App configs.
-     * @var array
-     */
-    $appConfigs = is_file(APP_DIR .'/app/config/config-'. $appEnv .'.php')
-        ? require APP_DIR .'/app/config/config-'. $appEnv .'.php'
-        : require APP_DIR .'/app/config/config.php';
-
-    // Error handler.
-    // $app->events()->on('app.error', function ($error) { .. });
-
-    // Output handler.
-    // $app->events()->on('app.output', function ($output) { .. });
-
-    // Before/after handlers.
-    // $app->events()->on('app.before', function () { .. });
-    // $app->events()->on('app.after', function () { .. });
-
-    // Shortcut routes.
-    // $app->get('/book/:id', 'Book.show');
-    // $app->get('/book/:id', function () { .. });
-
-
-    // Run app.
-    try {
-        $app->run(['env' => $appEnv, 'root' => $appRoot, 'configs' => $appConfigs]);
-    } catch (Throwable $error) {
-
-        // This will be sent to shutdown.
-        if (__local__) {
-            throw $error;
-        }
-
-        $app->error($error);
-    }
-})();
+    $app->error($error);
+}
