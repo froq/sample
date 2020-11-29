@@ -19,6 +19,7 @@ if ($_uri != '/' && file_exists($_pub . $_uri)) {
 
 // Set env as local.
 define('__local__', true);
+define('__LOCAL__', true);
 
 // Forward all to index.php.
 require $_pub . '/index.php';
