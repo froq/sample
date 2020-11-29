@@ -4,14 +4,14 @@ define('APP_DIR', dirname(__dir__));
 define('APP_START_TIME', microtime(true));
 
 // Include composer autoload.
-if (!is_file(APP_DIR .'/vendor/autoload.php')) {
+if (!is_file(APP_DIR . '/vendor/autoload.php')) {
     die('Composer autoload file not found!');
 }
-require APP_DIR .'/vendor/autoload.php';
+require APP_DIR . '/vendor/autoload.php';
 
 // Include autoloader file and registers Autoloader.
-if (!is_file($file = (APP_DIR .'/vendor/froq/froq/src/Autoloader.php'))) {
-    die('Froq autoloader file "'. $file .'" not found!');
+if (!is_file($file = (APP_DIR . '/vendor/froq/froq/src/Autoloader.php'))) {
+    die('Froq autoloader file "' . $file . '" not found!');
 }
 
 require $file;
@@ -21,8 +21,8 @@ $autoloader = froq\Autoloader::init();
 $autoloader->register();
 
 // Include initial file that returns App.
-if (!is_file($file = (APP_DIR .'/vendor/froq/froq/src/init.php'))) {
-    die('Froq init file "'. $file .'" not found!');
+if (!is_file($file = (APP_DIR . '/vendor/froq/froq/src/init.php'))) {
+    die('Froq init file "' . $file . '" not found!');
 }
 
 /**
@@ -48,9 +48,9 @@ $app_root = '/';
  * App configs.
  * @var array
  */
-$app_configs = is_file(APP_DIR .'/app/config/config-'. $app_env .'.php')
-    ? require APP_DIR .'/app/config/config-'. $app_env .'.php'
-    : require APP_DIR .'/app/config/config.php';
+$app_configs = is_file(APP_DIR . '/app/config/config-' . $app_env . '.php')
+    ? require APP_DIR . '/app/config/config-' . $app_env . '.php'
+    : require APP_DIR . '/app/config/config.php';
 
 // Error handler.
 // $app->events()->on('app.error', function ($error) { .. });
