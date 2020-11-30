@@ -71,11 +71,9 @@ $app_configs = is_file(APP_DIR . '/app/config/config-' . $app_env . '.php')
 try {
     $app->run(['env' => $app_env, 'root' => $app_root, 'configs' => $app_configs]);
 } catch (Throwable $error) {
-
     // This will be sent to shutdown.
     if (__local__) {
         throw $error;
     }
-
     $app->error($error);
 }
