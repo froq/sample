@@ -9,6 +9,11 @@ if (PHP_SAPI != 'cli-server') {
     die('This file must be run via cli-server only!');
 }
 
+// Ensure request scheme.
+$_SERVER['REQUEST_SCHEME'] ??= 'http' . (
+    (($_SERVER['SERVER_PORT'] ?? '') == '443') ? 's' : ''
+);
+
 $_pub = realpath(__dir__ . '/../pub');
 $_uri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
 
