@@ -87,7 +87,7 @@ return [
     // 'dotenv' => ['file' => string, 'global' => bool],
 
     // View options.
-    // 'view.layout' => APP_DIR .'/app/global/layout.php',
+    // 'view' => ['base' => string, 'layout' => string],
 
     // Misc options.
     'exposeAppRuntime' => true, // true=all, false=none or 'dev','test','stage','production'
