@@ -21,7 +21,7 @@ $autoloader = froq\Autoloader::init();
 $autoloader->register();
 
 // Include initial file that returns App.
-if (!is_file($file = (APP_DIR . '/vendor/froq/froq/src/init.php'))) {
+if (!is_file($file = (APP_DIR . '/vendor/froq/froq/src/_init.php'))) {
     die('Froq init file "' . $file . '" not found!');
 }
 
