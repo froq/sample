@@ -1,5 +1,5 @@
 # local
-tmp/
+var/
 
 # composer
 vendor/
