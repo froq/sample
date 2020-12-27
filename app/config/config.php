@@ -43,7 +43,7 @@ return [
     // Logger options.
     // 'logger' => [
     //     'level'     => froq\logger\Logger::ERROR | froq\logger\Logger::WARN,
-    //     'directory' => APP_DIR .'/tmp/log',
+    //     'directory' => APP_DIR .'/var/log',
     // ],
 
     // Session options ([] = use default options).
