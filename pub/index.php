@@ -9,11 +9,10 @@ if (!is_file(APP_DIR . '/vendor/autoload.php')) {
 }
 require APP_DIR . '/vendor/autoload.php';
 
-// Include autoloader file and registers Autoloader.
+// Include autoloader file.
 if (!is_file($file = (APP_DIR . '/vendor/froq/froq/src/Autoloader.php'))) {
     die('Froq autoloader file "' . $file . '" not found!');
 }
-
 require $file;
 
 // Register autoloader.
@@ -26,26 +25,26 @@ if (!is_file($file = (APP_DIR . '/vendor/froq/froq/src/_init.php'))) {
 }
 
 /**
- * App.
+ * App object, comes from required file.
  * @var froq\App
  */
 $app = require $file;
 
 /**
- * App env.
+ * App environment.
  * @var string
  */
 $app_env = __local__ ? froq\Env::DEVELOPMENT
                      : froq\Env::PRODUCTION;
 
 /**
- * App root.
+ * App root, that used for API versioning or such works (eg: /v1 => api.foo.com/v1).
  * @var string
  */
 $app_root = '/';
 
 /**
- * App configs.
+ * App configs, those environmental when environment-related file exists.
  * @var array
  */
 $app_configs = is_file(APP_DIR . '/app/config/config-' . $app_env . '.php')
