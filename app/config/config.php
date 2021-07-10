@@ -43,7 +43,7 @@ return [
     // Logger options.
     // 'logger' => [
     //     'level'     => froq\logger\Logger::ERROR | froq\logger\Logger::WARN,
-    //     'directory' => APP_DIR .'/tmp/log',
+    //     'directory' => APP_DIR .'/var/log',
     // ],
 
     // Session options ([] = use default options).
@@ -80,14 +80,11 @@ return [
     // 'router' => ['defaultController' => string, 'defaultAction' => string,
     //              'unicode' => bool, 'decodeUri' => bool, 'endingSlashes' => bool],
 
-    // Models.
-    // 'model.namespace' => string or 'model' => ['namespace' => string, 'map' => [string => string]]
-
     // Dotenv.
     // 'dotenv' => ['file' => string, 'global' => bool],
 
     // View options.
-    // 'view.layout' => APP_DIR .'/app/global/layout.php',
+    // 'view' => ['base' => string, 'layout' => string],
 
     // Misc options.
     'exposeAppRuntime' => true, // true=all, false=none or 'dev','test','stage','production'

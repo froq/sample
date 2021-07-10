@@ -1,15 +1,13 @@
 {
-    "name": "froq/skeleton",
-    "homepage": "https://github.com/froq/skeleton",
-    "description":  "Skeleton part of Froq!",
-    "keywords": ["froq", "skeleton"],
-    "license": "MIT",
-    "authors": [
-        {"name": "Kerem Güneş", "email": "k-gun@mail.com"}
-    ],
+    "name": "froq/sample",
+    "homepage": "http://github.com/froq/sample",
+    "description":  "Sample Froq! Application",
+    "keywords": ["froq", "sample"],
+    "license": "Apache-2.0",
+    "authors": [{"name": "Kerem Güneş"}],
     "require": {
-        "php": "^7.4",
-        "froq/froq": "^4.0"
+        "php": "^8.0",
+        "froq/froq": "^5.0"
     },
     "minimum-stability": "stable"
 }

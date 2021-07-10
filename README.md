@@ -1,10 +1,10 @@
 Notice: All Froq! files / modules dependent on [Composer](https://getcomposer.org/).
 
-### Install Skeleton
+### Install Sample
 
 ```bash
 ~$ mkdir -p /to/the/froq-project ; cd /to/the/froq-project \
-   ; git clone git@github.com:froq/skeleton.git . \
+   ; git clone git@github.com:froq/sample.git . \
    ; rm -rf ./.git/ ./LICENSE ./README.md \
    ; composer install
 ```
