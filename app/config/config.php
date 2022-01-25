@@ -23,6 +23,9 @@ return [
     'encoding' => 'UTF-8',
     'locales'  => [LC_TIME => 'en_US.UTF-8'],
 
+    // Ini.
+    // 'ini' => [string => scalar],
+
     // Initial response headers (null means remove).
     'headers'  => [
         // Cache (https://stackoverflow.com/questions/49547/how-do-we-control-web-page-caching-across-all-browsers).
