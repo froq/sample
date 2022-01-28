@@ -8,47 +8,46 @@ use froq\mvc\Controller;
  */
 class IndexController extends Controller
 {
-    /** @var bool */
-    // public bool $useView = true;
-    // public bool $useModel = true;
-    // public bool $useSession = true;
+    /**
+     * Load & use.
+     */
+    // var bool $useView = true;
+    // var bool $useModel = true;
+    // var bool $useSession = true;
 
     /**
      * Init.
-     * @return void
      */
-    public function init()
+    function init()
     {
         // Init operations.
     }
 
     /**
      * Index.
-     * @return void
      */
-    public function index()
+    function index()
     {
-        print "Hello, Froq!\n";
+        echo "Hello, Froq!", "\n";
     }
 
     /**
      * Error.
-     * @param Throwable|null $e
-     * @return void
      */
-    public function error($e = null)
+    function error($e = null)
     {
-        print "Error!\n";
+        echo "Error!", "\n";
         if ($e) {
-            print "Code: ". $e->getCode();
+            echo $e, "\n";
+            echo "Code: ", $e->getCode(), "\n";
+            echo "Message: ", $e->getMessage(), "\n";
         }
     }
 
     /**
      * Favicon action.
-     * @return void
      */
-    public function faviconAction()
+    function faviconAction()
     {
         $this->response(404, null, ['type' => 'n/a']);
     }
