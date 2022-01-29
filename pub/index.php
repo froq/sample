@@ -52,18 +52,18 @@ $app_configs = is_file(APP_DIR . '/app/config/config-' . $app_env . '.php')
     : require APP_DIR . '/app/config/config.php';
 
 // Error handler.
-// $app->events()->on('app.error', function ($error) { .. });
+// $app->on('app.error', function ($app, $error) { ... });
 
 // Output handler.
-// $app->events()->on('app.output', function ($output) { .. });
+// $app->on('app.output', function ($app, $output) { ... });
 
 // Before/after handlers.
-// $app->events()->on('app.before', function () { .. });
-// $app->events()->on('app.after', function () { .. });
+// $app->on('app.before', function ($app) { ... });
+// $app->on('app.after', function ($app) { ... });
 
 // Shortcut routes.
 // $app->get('/book/:id', 'Book.show');
-// $app->get('/book/:id', function () { .. });
+// $app->get('/book/:id', function () { ... });
 
 
 // Run app.
