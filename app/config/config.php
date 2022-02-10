@@ -62,9 +62,6 @@ return [
     //     ],
     // ],
 
-    // Request options.
-    // 'request.dottedParams'    => bool @default=false
-
     // Response options.
     // 'response.gzip'           => bool or ['minlen' => 64 (in kb) ...],
     // 'response.xml'            => ['indent' => bool, 'indentString' => ' '],
