@@ -34,8 +34,7 @@ $app = require $file;
  * App environment.
  * @var string
  */
-$app_env = __local__ ? froq\Env::DEVELOPMENT
-                     : froq\Env::PRODUCTION;
+$app_env = __local__ ? froq\Env::DEVELOPMENT : froq\Env::PRODUCTION;
 
 /**
  * App root, that used for API versioning or such works (eg: /v1 => api.foo.com/v1).
