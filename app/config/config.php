@@ -76,8 +76,8 @@ return [
     // ],
 
     // Cache options.
-    // 'cache' => ['id' => string, 'agent' => ['id' => string, 'name' => string, 'static' => bool,
-        // 'options' => ['ttl' => int, ...]]],
+    // 'cache' => ['id' => string, 'options' => ['id' => string?, 'agent' => string, 'static' => bool,
+    //     'ttl' => int, ...]],
 
     // Router options.
     // 'router' => ['defaultController' => string, 'defaultAction' => string,
