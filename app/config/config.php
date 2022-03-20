@@ -54,7 +54,8 @@ return [
     // With custom options (below is default).
     // 'session'  => [
     //     'name'        => 'SID',
-    //     'hash'        => bool, 'hashLength'  => 40, // ID length: 16, 32 or 40 only.
+    //     'hash'        => bool or 'uuid', 'hashUpper' => bool,
+    //     'hashLength'  => 40, // ID length: 16, 32 or 40 only.
     //     'savePath'    => null, 'saveHandler' => null,
     //     'cookie'      => [
     //         'lifetime' => 0,     'path'     => '/',   'domain'   => '',
@@ -63,7 +64,7 @@ return [
     // ],
 
     // Response options.
-    // 'response.gzip'           => bool or ['minlen' => 64 (in kb) ...],
+    // 'response.compress'       => ['gzip' or 'zlib', 'minlen' => 64 (in kb) 'level' => 1..9],
     // 'response.xml'            => ['indent' => bool, 'indentString' => ' '],
     // 'response.json'           => ['flags' => JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES],
     // 'response.image'          => ['jpegQuality' => 75, 'webpQuality' => 75],
