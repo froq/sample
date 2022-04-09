@@ -64,14 +64,9 @@ $app_configs = is_file(APP_DIR . '/app/config/config-' . $app_env . '.php')
 // $app->get('/book/:id', 'Book.show');
 // $app->get('/book/:id', function () { ... });
 
-
 // Run app.
 try {
     $app->run(['env' => $app_env, 'root' => $app_root, 'configs' => $app_configs]);
-} catch (Throwable $error) {
-    // This will be sent to shutdown.
-    if (__local__) {
-        throw $error;
-    }
-    $app->error($error);
+} catch (Throwable $e) {
+    $app->fallback($e);
 }
