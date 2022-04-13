@@ -6,8 +6,8 @@
     "license": "Apache-2.0",
     "authors": [{"name": "Kerem Güneş"}],
     "require": {
-        "php": "^8.0",
-        "froq/froq": "^5.0"
+        "php": "^8.1",
+        "froq/froq": "^6.0"
     },
     "minimum-stability": "stable"
 }
