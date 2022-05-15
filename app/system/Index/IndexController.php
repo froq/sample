@@ -1,7 +1,7 @@
 <?php
 namespace app\controller;
 
-use froq\mvc\Controller;
+use froq\app\Controller;
 
 /**
  * Index Controller.
@@ -11,9 +11,9 @@ class IndexController extends Controller
     /**
      * Load & use.
      */
-    // var bool $useView = true;
-    // var bool $useModel = true;
+    // var bool $useRepository = true;
     // var bool $useSession = true;
+    // var bool $useView = true;
 
     /**
      * Init.
