@@ -19,13 +19,13 @@ require $file;
 $autoloader = froq\Autoloader::init();
 $autoloader->register();
 
-// Include initial file that returns App.
+// Include initial file that returns App object.
 if (!is_file($file = (APP_DIR . '/vendor/froq/froq/src/_init.php'))) {
     die('Froq init file "' . $file . '" not found!');
 }
 
 /**
- * App object, comes from required file.
+ * App object.
  * @var froq\App
  */
 $app = require $file;
@@ -37,13 +37,13 @@ $app = require $file;
 $app_env = __local__ ? froq\Env::DEVELOPMENT : froq\Env::PRODUCTION;
 
 /**
- * App root, that used for API versioning or such works (eg: /v1 => api.foo.com/v1).
+ * App root (for API versioning or such works eg: /v1 => api.foo.com/v1).
  * @var string
  */
 $app_root = '/';
 
 /**
- * App configs, those environmental when environment-related file exists.
+ * App configurations (those environmental when environment-related file exists).
  * @var array
  */
 $app_configs = is_file(APP_DIR . '/app/config/config-' . $app_env . '.php')
@@ -62,7 +62,7 @@ $app_configs = is_file(APP_DIR . '/app/config/config-' . $app_env . '.php')
 
 // Shortcut routes.
 // $app->get('/book/:id', 'Book.show');
-// $app->get('/book/:id', function () { ... });
+// $app->get('/book/:id', function ($id) { ... });
 
 // Run app.
 try {
