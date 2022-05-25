@@ -1,5 +1,5 @@
-# local
-var/
+# logs etc.
+var/*
 
 # composer
 vendor/
@@ -7,3 +7,6 @@ composer.lock
 
 # sublime
 *.sublime-*
+
+# keep
+!.gitkeep
