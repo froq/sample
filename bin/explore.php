@@ -6,20 +6,22 @@
 // @tome: ln -s /var/www/\!froq/froq* /var/www/\!froq/sample_test/vendor/froq
 
 if (PHP_SAPI != 'cli') {
-    die('This file must be run via cli only!');
+    echo 'This file must be run via CLI only!', PHP_EOL;
+    exit(1);
 }
 
 // Path to "vendor/froq" folder.
-const __froqDir = __dir__ . '/../vendor/froq';
+$froqDir = dirname(__dir__) . '/vendor/froq';
 
 // Include autoloader file.
-if (!is_file($file = (__froqDir . '/froq/src/Autoloader.php'))) {
-    die('Froq autoloader file "' . $file . '" not found!');
+if (!is_file($file = ($froqDir . '/froq/src/Autoloader.php'))) {
+    echo 'Froq autoloader file "' . $file . '" not found!', PHP_EOL;
+    exit(1);
 }
 require $file;
 
 // Register autoloader.
-$loader = froq\Autoloader::init(__froqDir);
+$loader = froq\Autoloader::init($froqDir);
 $loader->register();
 
 // Default options.
@@ -41,13 +43,11 @@ define('APP_DIR', dirname(__dir__));
 if ($options['drop']) {
     $mapFile = APP_DIR . $loader->getMapFile();
     if (!is_file($mapFile)) {
-        echo 'No file exists such: "' . $mapFile .'", skipped.';
-        echo PHP_EOL;
+        echo 'No file exists such: "' . $mapFile .'", skipped.', PHP_EOL;
     } else {
         echo 'Dropping autoload map: "' . $mapFile . '" ... ';
         $loader->explore('', $options);
-        echo 'OK!';
-        echo PHP_EOL;
+        echo 'OK!', PHP_EOL;
     }
     return;
 }
@@ -56,6 +56,5 @@ if ($options['drop']) {
 foreach (['/app/system', '/app/library'] as $directory) {
     echo 'Generating autoload map for: "' . APP_DIR . $directory . '" ... ';
     $loader->explore($directory, $options);
-    echo 'OK!';
-    echo PHP_EOL;
+    echo 'OK!', PHP_EOL;
 }
