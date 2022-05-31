@@ -9,11 +9,11 @@
         "php": "^8.1",
         "froq/froq": "^6.0"
     },
-    "autoload // To manipulate froq autoloader change this field to \"autoload\"": {
+    "To manipulate froq autoloader, change this field to \"autoload\"": {
         "psr-4": {
-            "app\\controller\\" : "app/system/controller",
-            "app\\repository\\" : "app/system/repository",
-            "app\\entity\\"     : "app/system/entity"
+            "app\\controller\\": "app/system/controller",
+            "app\\repository\\": "app/system/repository",
+            "app\\entity\\": "app/system/entity"
         }
     },
     "minimum-stability": "stable",
