@@ -45,7 +45,7 @@ return [
 
     // Logger options.
     // 'logger' => [
-    //     'level'     => froq\logger\Logger::ERROR | froq\logger\Logger::WARN,
+    //     'level'     => froq\logger\LogLevel::ERROR | froq\logger\LogLevel::WARN,
     //     'directory' => APP_DIR .'/var/log',
     // ],
 
