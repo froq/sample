@@ -56,7 +56,7 @@ return [
     //     'name'        => 'SID',
     //     'hash'        => bool or 'uuid', 'hashUpper' => bool,
     //     'hashLength'  => 40, // ID length: 16, 32 or 40 only.
-    //     'savePath'    => null, 'saveHandler' => null,
+    //     'savePath'    => null, 'saveHandler' => class or [class, class file],
     //     'cookie'      => [
     //         'lifetime' => 0,     'path'     => '/',   'domain'   => '',
     //         'secure'   => bool,  'httponly' => bool,  'samesite' => '',
