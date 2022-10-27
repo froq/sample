@@ -68,5 +68,5 @@ $app_configs = is_file(APP_DIR . '/app/config/config-' . $app_env . '.php')
 try {
     $app->run(['env' => $app_env, 'root' => $app_root, 'configs' => $app_configs]);
 } catch (Throwable $e) {
-    $app->fallback($e);
+    $app->rerun($e);
 }
