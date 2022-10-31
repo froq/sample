@@ -1,12 +1,23 @@
-# logs etc.
+# Log, cache etc.
 var/*
 
-# composer
+# Composer
 vendor/
 composer.lock
+composer.phar
 
-# sublime
+# Sublime
 *.sublime-*
 
-# keep
+# DotEnv
+.env
+.env.production
+
+# PHPUnit
+/.phpunit
+.phpunit.result.cache
+phpunit.xml
+
+# Git
 !.gitkeep
+!.gitignore
