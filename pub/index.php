@@ -31,16 +31,16 @@ if (!is_file($file = (APP_DIR . '/vendor/froq/froq/src/_init.php'))) {
 $app = require $file;
 
 /**
- * App environment.
- * @var string
- */
-$app_env = __local__ ? froq\Env::DEVELOPMENT : froq\Env::PRODUCTION;
-
-/**
  * App root (for API versioning or such works eg: /v1 => api.foo.com/v1).
  * @var string
  */
 $app_root = '/';
+
+/**
+ * App environment.
+ * @var string
+ */
+$app_env = __local__ ? froq\Env::DEVELOPMENT : froq\Env::PRODUCTION;
 
 /**
  * App configurations (those environmental when environment-related file exists).
@@ -66,7 +66,7 @@ $app_configs = is_file(APP_DIR . '/app/config/config-' . $app_env . '.php')
 
 // Run app.
 try {
-    $app->run(['env' => $app_env, 'root' => $app_root, 'configs' => $app_configs]);
+    $app->run($app_root, $app_env, $app_configs);
 } catch (Throwable $e) {
     $app->rerun($e);
 }
