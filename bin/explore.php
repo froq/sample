@@ -5,7 +5,7 @@
 
 // @tome: ln -s /var/www/\!froq/froq* /var/www/\!froq/sample_test/vendor/froq
 
-if (PHP_SAPI != 'cli') {
+if (PHP_SAPI !== 'cli') {
     echo 'This file must be run via CLI only!', PHP_EOL;
     exit(1);
 }
