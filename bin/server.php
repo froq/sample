@@ -4,7 +4,7 @@
 // As another user (i.e. www-data).
 // $ sudo -u www-data php -S localhost:8080 -t pub/ bin/server.php
 
-if (PHP_SAPI != 'cli-server') {
+if (PHP_SAPI !== 'cli-server') {
     echo 'This file must be run via CLI-Server only!', PHP_EOL;
     exit(1);
 }
@@ -18,7 +18,7 @@ $_pub = realpath(__dir__ . '/../pub');
 $_uri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
 
 // Check for static files.
-if ($_uri != '/' && file_exists($_pub . $_uri)) {
+if ($_uri !== '/' && file_exists($_pub . $_uri)) {
     return false;
 }
 
