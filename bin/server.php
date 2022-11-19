@@ -11,7 +11,7 @@ if (PHP_SAPI !== 'cli-server') {
 
 // Ensure request scheme.
 $_SERVER['REQUEST_SCHEME'] ??= 'http' . (
-    (($_SERVER['SERVER_PORT'] ?? '') === '443') ? 's' : ''
+    ($_SERVER['SERVER_PORT'] ?? '') === '443' ? 's' : ''
 );
 
 $_pub = realpath(__dir__ . '/../pub');
