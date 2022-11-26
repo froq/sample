@@ -11,7 +11,7 @@ if (PHP_SAPI !== 'cli') {
 }
 
 // Path to "vendor/froq" folder.
-$froqDir = dirname(__dir__) . '/vendor/froq';
+$froqDir = dirname(__DIR__) . '/vendor/froq';
 
 // Include autoloader file.
 if (!is_file($file = ($froqDir . '/froq/src/Autoloader.php'))) {
@@ -37,7 +37,7 @@ if (isset($arguments['drop'])) {
 }
 
 // Required for autoloader.
-define('APP_DIR', dirname(__dir__));
+define('APP_DIR', dirname(__DIR__));
 
 // Drop autoload map.
 if ($options['drop']) {
