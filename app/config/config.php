@@ -84,7 +84,7 @@ return [
     // 'router' => ['defaultController' => string, 'defaultAction' => string,
     //              'unicode' => bool, 'decodeUri' => bool, 'endingSlashes' => bool],
 
-    // Dotenv.
+    // Dot-env.
     // 'dotenv' => ['file' => string, 'global' => bool],
 
     // View options.
