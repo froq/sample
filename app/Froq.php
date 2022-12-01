@@ -10,37 +10,28 @@ use froq\Autoloader;
 
 /**
  * Runner class.
- *
  * @internal
  */
 class Froq
 {
     /**
      * App instance.
-     *
-     * @var froq\App
      */
     private App $app;
 
     /**
      * App root.
-     *
-     * @var string
      */
     private string $root;
 
     /**
      * App env.
-     *
-     * @var string
      */
     private string $env;
 
     /**
      * Directory of Froq!
      * Used by `froq\Autoloader` class.
-     *
-     * @var string
      * @default vendor/froq
      */
     private string $dir;
