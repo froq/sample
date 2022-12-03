@@ -43,9 +43,9 @@ return [
     // Initial response cookies.
     // 'cookies'  => [name => [value, ?[options]]],
 
-    // Logger options.
-    // 'logger' => [
-    //     'level'     => froq\logger\LogLevel::ERROR | froq\logger\LogLevel::WARN,
+    // Log options.
+    // 'log' => [
+    //     'level'     => froq\log\LogLevel::ERROR | froq\log\LogLevel::WARN,
     //     'directory' => APP_DIR .'/var/log',
     // ],
 
