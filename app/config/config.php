@@ -11,7 +11,7 @@ return [
 
     // Routes & services.
     'routes'   => include 'routes.php',
-    // 'services' => include 'services.php',
+    'services' => include 'services.php',
 
     // Protocols.
     'http'     => 'http://'. $_SERVER['SERVER_NAME'],
