@@ -67,7 +67,6 @@ return [
     // 'response.compress'       => ['gzip' or 'zlib', 'minlen' => 64 (in kb) 'level' => 1..9],
     // 'response.xml'            => ['indent' => bool, 'indentString' => ' '],
     // 'response.json'           => ['indent' => string|int, 'flags' => JSON_*],
-    // 'response.image'          => ['jpegQuality' => 75, 'webpQuality' => 75],
     // 'response.file.rateLimit' => 1024 ** 2, // 1MB
 
     // Database options.
