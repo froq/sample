@@ -11,8 +11,8 @@ try {
     /** Initialize. */
     Froq::init(root: '/', env: null, dir: null)
 
-    /** Apply preparations. */
-    // ->apply(function ($app) {
+    /** Prepare. */
+    // ->prepare(function ($app) {
     //     // Error handler.
     //     $app->on('error', function ($event, $error) { ... });
 

@@ -14,34 +14,26 @@ use froq\Autoloader;
  */
 class Froq
 {
-    /**
-     * App instance.
-     */
+    /** App instance. */
     private App $app;
 
-    /**
-     * App root.
-     */
+    /** App root (URI base). */
     private string $root;
 
-    /**
-     * App env.
-     */
+    /** App env (environment). */
     private string $env;
 
-    /**
-     * Directory of Froq!
-     * Used by `froq\Autoloader` class.
-     * @default vendor/froq
-     */
+    /** Directory of Froq! modules.
+     * Used by `froq\Autoloader` class,
+     * and default is `vendor/froq`. */
     private string $dir;
 
     /**
      * Constructor.
      *
-     * @param string      $root The app root.
-     * @param string|null $env  The app environment.
-     * @param string|null $dir  The directory of Froq!
+     * @param string      $root
+     * @param string|null $env
+     * @param string|null $dir
      */
     private function __construct(string $root, string $env = null, string $dir = null)
     {
@@ -58,12 +50,12 @@ class Froq
     }
 
     /**
-     * Apply preparations (@see index.php).
+     * Prepare (@see pub/index.php).
      *
      * @param  Closure $func
      * @return self
      */
-    public function apply(Closure $func): self
+    public function prepare(Closure $func): self
     {
         $func->call($this, $this->app);
 
@@ -88,7 +80,7 @@ class Froq
     }
 
     /**
-     * Require loaders (both froq\Autoloader & ComposerAutoloader).
+     * Require loaders (both `froq\Autoloader` & `ComposerAutoloader`).
      *
      * @throws Exception
      */
@@ -162,8 +154,8 @@ class Froq
     /**
      * Static initializer.
      */
-    public static function init(string $root, string $env = null, string $dir = null): self
+    public static function init(string $root, string $env = null, string $dir = null): static
     {
-        return new self($root, $env, $dir);
+        return new static($root, $env, $dir);
     }
 }
