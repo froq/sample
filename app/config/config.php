@@ -90,5 +90,5 @@ return [
     // 'view' => ['base' => string, 'layout' => string],
 
     // Misc options.
-    'exposeAppRuntime' => true, // true=all, false=none or 'dev','test','stage','production'
+    'exposeAppRuntime' => true, // true=all, false=none or 'development', 'testing', 'staging', 'production'
 ];
