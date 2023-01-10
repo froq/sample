@@ -94,6 +94,13 @@ class Froq
 
         require $autoloaderFile;
 
+        // Composer environment (in-app).
+        $composerFile = APP_DIR . '/vendor/autoload.php';
+        if (file_exists($composerFile)) {
+            require $composerFile;
+            return;
+        }
+
         foreach (['/../autoload.php', '/../vendor/autoload.php'] as $file) {
             $composerFile = $this->dir . $file;
             if (file_exists($composerFile)) {
