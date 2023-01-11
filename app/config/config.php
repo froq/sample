@@ -2,7 +2,6 @@
 /**
  * Define your configs here.
  */
-
 return [
     // Note: dot (.) notations are valid for base keys.
     // With/without dots.
