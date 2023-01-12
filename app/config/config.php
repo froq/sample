@@ -54,10 +54,10 @@ return [
     // 'session'  => [
     //     'name'     => 'SID',
     //     'hash'     => 'uuid' or 32, 40, 16, 'hashUpper' => bool,
-    //     'savePath' => null, 'saveHandler' => class or [class, class file],
+    //     'savePath' => null, 'saveHandler' => class or [class, class-file],
     //     'cookie'   => [
-    //         'lifetime' => 0,     'path'     => '/',   'domain'   => '',
-    //         'secure'   => bool,  'httponly' => bool,  'samesite' => '',
+    //         'lifetime' => 0,    'path'     => '/',  'domain'   => '',
+    //         'secure'   => bool, 'httponly' => bool, 'samesite' => '',
     //     ],
     // ],
 
