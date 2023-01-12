@@ -13,8 +13,8 @@ return [
     'services' => include 'services.php',
 
     // Protocols.
-    'http'     => 'http://'. $_SERVER['SERVER_NAME'],
-    'https'    => 'https://'. $_SERVER['SERVER_NAME'],
+    'http'     => 'http://' . $_SERVER['SERVER_NAME'],
+    'https'    => 'https://' . $_SERVER['SERVER_NAME'],
 
     // Localization.
     'timezone' => 'UTC',
