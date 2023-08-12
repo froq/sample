@@ -70,7 +70,7 @@ return [
     /* Database options. */
     // 'database'    => [
     //     'dsn'  => string,
-    //     'user' => string, 'pass' => string, 'profiling' => bool, 'logging' => bool,
+    //     'user' => string, 'pass' => string, 'profiling' => bool, 'logging' => array,
     // ],
 
     /* Cache options. */
