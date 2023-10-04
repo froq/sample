@@ -6,8 +6,8 @@
     "license": "Apache-2.0",
     "authors": [{"name": "Kerem Güneş"}],
     "require": {
-        "php": "^8.1",
-        "froq/froq": "^6.0"
+        "php": "^8.2",
+        "froq/froq": "^7.0"
     },
     "To manipulate froq autoloader, change this field to \"autoload\"": {
         "psr-4": {
