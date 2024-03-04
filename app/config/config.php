@@ -42,8 +42,8 @@ return [
     /* Initial response cookies. */
     // 'cookies'  => [name => [value, ?[options]]],
 
-    /* Log options. */
-    // 'log' => [
+    /* Logger options. */
+    // 'logger' => [
     //     'level'     => froq\log\LogLevel::ERROR | froq\log\LogLevel::WARN,
     //     'directory' => APP_DIR . '/var/log',
     // ],
@@ -70,7 +70,8 @@ return [
     /* Database options. */
     // 'database'    => [
     //     'dsn'  => string,
-    //     'user' => string, 'pass' => string, 'profiling' => bool, 'logging' => array,
+    //     'user' => string, 'pass' => string,
+    //     'profiling' => bool, 'logging' => array // @see 'logger' options,
     // ],
 
     /* Cache options. */
