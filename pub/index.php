@@ -31,7 +31,5 @@ try {
     /** Run. */
     ->run();
 } catch (Throwable $e) {
-    error_log((string) $e);
-    // echo $e->getMessage(), "\n";
-    // echo $e->getTraceAsString();
+    Froq::error($e);
 }
