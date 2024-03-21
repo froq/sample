@@ -9,8 +9,8 @@ return [
     /* 'response.json' => ['flags' => JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE] */
 
     /* Routes & services. */
-    'routes'   => include 'routes.php',
-    'services' => include 'services.php',
+    'routes'   => require __DIR__ . '/routes.php',
+    'services' => require __DIR__ . '/services.php',
 
     /* Protocols. */
     'http'     => 'http://' . $_SERVER['SERVER_NAME'],
