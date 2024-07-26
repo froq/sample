@@ -6,8 +6,7 @@ use froq\app\Controller;
 /**
  * Index Controller.
  */
-class IndexController extends Controller
-{
+class IndexController extends Controller {
     /**
      * Load & use.
      */
@@ -18,24 +17,21 @@ class IndexController extends Controller
     /**
      * Init.
      */
-    function init()
-    {
+    function init() {
         // Init operations.
     }
 
     /**
      * Index.
      */
-    function index()
-    {
+    function index() {
         echo "Hello, Froq!", "\n";
     }
 
     /**
      * Error.
      */
-    function error($e = null)
-    {
+    function error($e = null) {
         echo "Error!", "\n";
         if ($e) {
             echo $e, "\n";
@@ -47,8 +43,7 @@ class IndexController extends Controller
     /**
      * Favicon action.
      */
-    function faviconAction()
-    {
+    function faviconAction() {
         $this->response(404, null, ['type' => 'n/a']);
     }
 }

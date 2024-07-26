@@ -67,12 +67,18 @@ return [
     // 'response.json'           => ['indent' => string|int, 'flags' => JSON_*],
     // 'response.file.rateLimit' => 1024 ** 2, // 1MB
 
+    /* As this is a sample, we want to see indented JSON strings */
+    'response.json' => ['indent' => 2],
+
     /* Database options. */
     // 'database'    => [
     //     'dsn'  => string,
     //     'user' => string, 'pass' => string,
     //     'profiling' => bool, 'logging' => array // @see 'logger' options,
     // ],
+
+    /* As this is a sample, we want to work with SQLite database. */
+    'database' => ['dsn' => 'sqlite:' . APP_DIR . '/var/sample.db'],
 
     /* Cache options. */
     // 'cache' => ['id' => string, 'options' => ['id' => ?string, 'agent' => string, 'static' => bool,
