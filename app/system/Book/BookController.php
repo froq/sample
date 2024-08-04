@@ -4,8 +4,7 @@ namespace app\controller;
 use froq\app\Controller;
 use froq\http\response\Status;
 use froq\http\request\params\GetParams;
-use app\repository\data\BookDto;
-use app\repository\{BookQuery, BookResource};
+use app\repository\{BookResource, BookQuery, data\BookDto};
 
 /**
  * Book Controller, accepts/returns JSON data.
@@ -82,18 +81,6 @@ class BookController extends Controller {
     }
 
     /**
-     * Show a book.
-     *
-     * @call GET /book/:id
-     */
-    function showAction(int $id) {
-        return new BookResource(
-            $data = $this->repository->find($id),
-            status: $data ? Status::OK : Status::NOT_FOUND
-        );
-    }
-
-    /**
      * Delete a book.
      *
      * @call DELETE /book/:id
@@ -101,6 +88,18 @@ class BookController extends Controller {
     function deleteAction(int $id) {
         return new BookResource(
             $data = $this->repository->delete($id),
+            status: $data ? Status::OK : Status::NOT_FOUND
+        );
+    }
+
+    /**
+     * Show a book.
+     *
+     * @call GET /book/:id
+     */
+    function showAction(int $id) {
+        return new BookResource(
+            $data = $this->repository->find($id),
             status: $data ? Status::OK : Status::NOT_FOUND
         );
     }
