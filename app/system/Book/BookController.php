@@ -3,6 +3,7 @@ namespace app\controller;
 
 use froq\app\Controller;
 use froq\http\response\Status;
+use froq\http\request\params\GetParams;
 use app\repository\data\BookDto;
 use app\repository\{BookQuery, BookResource};
 
@@ -27,11 +28,11 @@ class BookController extends Controller {
      *
      * @call GET /book
      */
-    function listAction() {
+    function listAction(GetParams $params) {
         return new BookResource(
             $data = $this->repository->findAll(
-                query: new BookQuery($this),
-                page: (int) $this->request->get('page', 1),
+                query: new BookQuery($params),
+                page: $params->getInt('page', 1),
                 pager: $pager // byref.
             ),
             meta: [

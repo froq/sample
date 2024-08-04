@@ -2,7 +2,7 @@
 namespace app\repository;
 
 use froq\database\Query;
-use app\controller\BookController;
+use froq\http\request\params\GetParams;
 
 /**
  * Query class for books.
@@ -12,18 +12,13 @@ class BookQuery extends Query {
     /**
      * @override
      */
-    function __construct(
-        private BookController $controller
-    ) {
-        // Send same database instance to base Query.
-        parent::__construct($controller->repository->db());
+    function __construct(GetParams $params) {
+        parent::__construct(app()->database);
 
-        /** @var UrlQuery|null (sugar) */
-        if ($q = $controller->request->query()) {
-            if ($id = (int) $q->get('id')) {
-                $this->in('id', [$id]);
-            }
-            if ($name = (string) $q->get('name')) {
+        if ($id = $params->getInt('id')) {
+            $this->equal('id', $id);
+        } else {
+            if ($name = $params->getString('name')) {
                 $this->likeBoth('name', $name);
             }
         }
