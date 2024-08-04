@@ -29,7 +29,15 @@ class BookController extends Controller {
      */
     function listAction() {
         return new BookResource(
-            $data = $this->repository->findAll(new BookQuery($this)),
+            $data = $this->repository->findAll(
+                query: new BookQuery($this),
+                page: (int) $this->request->get('page', 1),
+                pager: $pager // byref.
+            ),
+            meta: [
+                'total' => $pager->getTotalRecords(),
+                'pager' => $pager
+            ],
             status: $data ? Status::OK : Status::NOT_FOUND
         );
     }
