@@ -1,13 +1,14 @@
 <?php
 namespace app\repository\data;
 
-use froq\app\data\InputInterface as Dto;
+use froq\app\data\InputInterface;
 use froq\common\interface\Arrayable;
 
 /**
  * DTO for books.
+ * @data
  */
-class BookDto implements Dto, Arrayable {
+class BookDto implements InputInterface, Arrayable {
     var ?int $id;
     var ?string $name;
     var ?string $author;

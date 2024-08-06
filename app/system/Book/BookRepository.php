@@ -4,6 +4,7 @@ namespace app\repository;
 use froq\app\Repository;
 use froq\database\Query;
 use froq\pagination\Paginator;
+use app\repository\data\{Book, BookDto};
 
 /**
  * Repository class for books.
@@ -51,51 +52,34 @@ class BookRepository extends Repository {
 
         return $this->db->getAll($query);
 
-        // Or direct select without query.
+        // Or direct select without query & pagination.
         // return $this->db->selectAll('books', '*', order: ['id', 'DESC']);
     }
 
     /**
      * Add a book.
      */
-    function add(array $data): ?array {
-        try {
-            $data['created_at'] = date('Y-m-d H:i:s');
+    function add(BookDto $book): ?array {
+        $book = (new Book($book))->save();
 
-            // No RETURNING support for version < 3.35 in SQLite.
-            $id = $this->db->insert('books', $data);
-            return $id ? $this->find($id) : null;
-        } catch (\Throwable) {
-            return null;
-        }
+        return $book->okay() ? $book->toArray() : null;
     }
 
     /**
      * Edit a book.
      */
-    function edit(int $id, array $data): ?array {
-        if ($book = $this->find($id)) {
-            $data['updated_at'] = date('Y-m-d H:i:s');
+    function edit(int $id, BookDto $book): ?array {
+        $book = (new Book($book))->save($id);
 
-            $data = filter($data, fn($v) => isset($v));
-            $book = $data = [...$book, ...$data];
-
-            $ok = $this->db->update('books', $data, where: ['id' => $id]);
-            return $ok ? $book : null;
-        }
-
-        return null;
+        return $book->okay() ? $book->toArray() : null;
     }
 
     /**
      * Delete a book.
      */
     function delete(int $id): ?array {
-        if ($book = $this->find($id)) {
-            $ok = $this->db->delete('books', where: ['id' => $id]);
-            return $ok ? $book : null;
-        }
+        $book = (new Book())->remove($id);
 
-        return null;
+        return $book->okay() ? $book->toArray() : null;
     }
 }

@@ -34,9 +34,9 @@ class IndexController extends Controller {
     function error($e = null) {
         echo "Error!", "\n";
         if ($e) {
-            echo $e, "\n";
             echo "Code: ", $e->getCode(), "\n";
             echo "Message: ", $e->getMessage(), "\n";
+            echo $e, "\n";
         }
     }
 

@@ -56,7 +56,7 @@ class BookController extends Controller {
         }
 
         return new BookResource(
-            $data = $this->repository->add($book->toArray()),
+            $data = $this->repository->add($book),
             status: $data ? Status::OK : Status::INTERNAL
         );
     }
@@ -75,7 +75,7 @@ class BookController extends Controller {
         }
 
         return new BookResource(
-            $data = $this->repository->edit($id, $book->toArray()),
+            $data = $this->repository->edit($id, $book),
             status: $data ? Status::OK : Status::NOT_FOUND
         );
     }
