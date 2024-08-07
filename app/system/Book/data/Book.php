@@ -31,9 +31,6 @@ class Book extends Entry {
         $this->reset();
         $this->commit();
 
-        // Found tick for state.
-        $this->okay(isset($this->id));
-
         return $this;
     }
 
