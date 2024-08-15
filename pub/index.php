@@ -5,7 +5,7 @@ define('APP_DIR', dirname(__DIR__));
 define('APP_START', microtime(true));
 
 /** Require Froq! */
-require APP_DIR . '/app/Froq.php';
+require __DIR__ . '/Froq.php';
 
 try {
     /** Initialize. */
