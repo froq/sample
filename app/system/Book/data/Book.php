@@ -2,7 +2,7 @@
 namespace app\repository\data;
 
 use froq\database\entry\Entry;
-use Throwable, DateTime, DateTimeZone;
+use app\library\Date;
 
 /**
  * Entry for books.
@@ -39,7 +39,7 @@ class Book extends Entry {
      */
     function save(int $id = null): self {
         $data = $this->toData(['name', 'author']);
-        $date = new DateTime('', new DateTimeZone('UTC'));
+        $date = new Date();
 
         if ($id === null) {
             $this->query('books')->insert([
