@@ -9,7 +9,7 @@
         "php": "^8.2",
         "froq/froq": "^7.0"
     },
-    "To manipulate froq autoloader, change this field to \"autoload\"": {
+    "Change this field to \"autoload\" to manipulate autoloading": {
         "psr-4": {
             "app\\controller\\": "app/system/controller",
             "app\\repository\\": "app/system/repository",
