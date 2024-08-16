@@ -17,9 +17,7 @@ if (file_exists(__DIR__ . '/../var/sample.db')) {
     unlink(__DIR__ . '/../var/sample.db');
 }
 
-// Define APP_DIR constant.
 define('APP_DIR', dirname(__DIR__));
-
 date_default_timezone_set('UTC');
 
 use PHPUnit\Framework\TestCase;
