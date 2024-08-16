@@ -41,13 +41,13 @@ jobs:
 
       - name: Run Server
         run: |
-          echo "> Running Server: http://localhost:8000/" ; echo ""
-          php -S localhost:8000 bin/server.php 2>&1 & # stderr => stdout.
+          echo "> Running Server: http://localhost:8080/" ; echo ""
+          php -S localhost:8080 bin/server.php 2>&1 & # stderr => stdout.
 
       - name: Check Server
         run: |
-          echo "> Checking Server: http://localhost:8000/" ; echo ""
-          curl -sS -I "http://localhost:8000/"
+          echo "> Checking Server: http://localhost:8080/" ; echo ""
+          curl -sS -I "http://localhost:8080/"
 
       - name: Run Tests
         run: |
