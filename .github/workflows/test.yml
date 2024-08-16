@@ -47,7 +47,7 @@ jobs:
       - name: Check Server
         run: |
           echo "> Checking Server: http://localhost:8080/" ; echo ""
-          curl -sS "http://localhost:8080/"
+          curl -sS -i "http://localhost:8080/"
 
       - name: Run Tests
         run: |
