@@ -23,7 +23,7 @@ return [
         'GET'    => 'Book.show',
         'PUT'    => 'Book.edit',
         'DELETE' => 'Book.delete',
-    ]
+    ],
 
     // // Book routes (RESTful way), option 2.
     // ['/book'    , ['GET'    => 'Book.list']],
