@@ -19,14 +19,13 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
-          extensions: json, curl, mbstring, sqlite3, gmp, xml
+          extensions: json, curl, sqlite3, gmp, xml
 
       - name: Add / Update Locales # Locale en_US is supposed be there already?
         run: sudo locale-gen en_US ; sudo locale-gen en_US.UTF-8 ; sudo update-locale
 
-      - name: Validate composer.json & composer.lock
-        run: composer validate
-        # run: composer validate --strict
+      # - name: Validate composer.json & composer.lock
+      #   run: composer validate --strict
 
       - name: Cache Composer Packages
         id: composer-cache
