@@ -10,7 +10,7 @@
         "froq/froq": "^7.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.5",
+        "phpunit/phpunit": "^9.5"
     },
     "Change this field to \"autoload\" to manipulate autoloading": {
         "psr-4": {
