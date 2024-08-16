@@ -42,7 +42,7 @@ class BookController extends Controller {
     function listAction(GetParams $params): BookResource {
         return new BookResource(
             $data = $this->repository->findAll(
-                query: new BookQuery($params),
+                where: new BookQuery($params),
                 page: $params->getInt('page', 1),
                 pager: $pager // byref.
             ),

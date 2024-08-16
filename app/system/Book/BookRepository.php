@@ -3,13 +3,12 @@
 namespace app\repository;
 
 use froq\app\Repository;
-use froq\database\Query;
 use froq\pagination\Paginator;
+use froq\database\query\QueryParams;
 use app\repository\data\{Book, BookDto};
 
 /**
  * Repository class for books.
- * @data
  */
 class BookRepository extends Repository {
     /**
@@ -31,10 +30,10 @@ class BookRepository extends Repository {
      * Find a book.
      */
     function find(int $id): ?array {
-        $query = $this->initQuery();
-        $query->select('*')
-              ->from('books')
-              ->equal('id', $id);
+        $query = $this->initQuery()
+            ->select('*')
+            ->from('books')
+            ->equal('id', $id);
 
         return $this->db->get($query);
 
@@ -45,11 +44,13 @@ class BookRepository extends Repository {
     /**
      * Find all books.
      */
-    function findAll(Query $query, int $page = 1, ?Paginator &$pager = null): ?array {
-        $query->select('*')
-              ->from('books')
-              ->order('id', 'DESC')
-              ->paginate($page, paginator: $pager);
+    function findAll(QueryParams $where, int $page = 1, ?Paginator &$pager = null): ?array {
+        $query = $this->initQuery()
+            ->select('*')
+            ->from('books')
+            ->where($where)
+            ->order('id', 'DESC')
+            ->paginate($page, paginator: $pager);
 
         return $this->db->getAll($query);
 

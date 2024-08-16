@@ -2,25 +2,22 @@
 
 namespace app\repository;
 
-use froq\database\Query;
+use froq\database\query\QueryParams;
 use froq\http\request\params\GetParams;
 
 /**
  * Query class for books.
- * @data
  */
-class BookQuery extends Query {
+class BookQuery extends QueryParams {
     /**
      * @override
      */
     function __construct(GetParams $params) {
-        parent::__construct(app()->database);
-
         if ($id = $params->getInt('id')) {
-            $this->equal('id', $id);
+            $this->addIn('id', [$id]);
         } else {
             if ($name = $params->getString('name')) {
-                $this->likeBoth('name', $name);
+                $this->addLike('name', ['%', $name, '%'], true);
             }
         }
     }

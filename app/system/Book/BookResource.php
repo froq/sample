@@ -6,7 +6,6 @@ use froq\app\data\Resource;
 
 /**
  * Resource class for books.
- * @data
  */
 class BookResource extends Resource {
     /**
