@@ -19,33 +19,45 @@ class IndexController extends Controller {
     /**
      * Init.
      */
-    function init() {
+    function init(): void {
         // Init operations.
     }
 
     /**
-     * Index.
+     * Before.
      */
-    function index() {
+    function before(): void {
+        // Before operations.
+    }
+
+    /**
+     * After.
+     */
+    function after(): void {
+        // After operations.
+    }
+
+    /**
+     * Index.
+     *
+     * @call * /
+     */
+    function index(): void {
         echo "Hello, Froq!", "\n";
     }
 
     /**
      * Error.
+     *
+     * @call * /error
+     * @call internal
      */
-    function error(Throwable $e = null) {
+    function error(Throwable $e = null): void {
         echo "Error!", "\n";
         if ($e) {
             echo "Code: ", $e->getCode(), "\n";
             echo "Message: ", $e->getMessage(), "\n";
             echo $e, "\n";
         }
-    }
-
-    /**
-     * Favicon action.
-     */
-    function faviconAction() {
-        $this->response(404, null, ['type' => 'n/a']);
     }
 }

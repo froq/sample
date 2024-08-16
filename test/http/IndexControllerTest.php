@@ -6,7 +6,7 @@ use froq\http\response\Status;
 
 class IndexControllerTest extends \HttpTestCase
 {
-    function test_index() {
+    function test_index_with_okay_status() {
         $response = $this->request('GET', '/');
         $payload = $response->getBody();
 
@@ -14,7 +14,7 @@ class IndexControllerTest extends \HttpTestCase
         self::assertSame('Hello', strcut($payload, 5));
     }
 
-    function test_error() {
+    function test_error_with_okay_status() {
         $response = $this->request('GET', '/error');
         $payload = $response->getBody();
 
