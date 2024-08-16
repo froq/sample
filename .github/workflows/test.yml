@@ -51,7 +51,7 @@ jobs:
 
       - name: Run Tests
         run: |
-          echo "Running Unit tests ..." ; echo ""
-          vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite Unit
-          echo "Running Http tests ..." ; echo ""
-          vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite Http
+          echo "> Running Unit tests ..." ; echo ""
+          vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite Unit ; echo ""
+          echo "> Running Http tests ..." ; echo ""
+          vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite Http ;
