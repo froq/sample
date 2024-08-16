@@ -13,7 +13,7 @@ return [
     '/error' => 'Index.error',
 
     // Book routes (RESTful way).
-    ['/book'    , ['*'      => 'Book.list']],
+    ['/book'    , ['GET'    => 'Book.list']],
     ['/book'    , ['POST'   => 'Book.add']],
     ['/book/:id', ['PUT'    => 'Book.edit']],
     ['/book/:id', ['GET'    => 'Book.show']],

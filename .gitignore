@@ -15,8 +15,8 @@ composer.phar
 
 # PHPUnit
 /.phpunit
+.phpunit.cache
 .phpunit.result.cache
-phpunit.xml
 
 # Git
 !.gitkeep

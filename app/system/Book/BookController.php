@@ -1,10 +1,16 @@
-<?php
+<?php declare(strict_types=1);
+
 namespace app\controller;
 
 use froq\app\Controller;
+use froq\http\HttpException;
+use froq\http\exception\client\{
+    NotFoundException, NotAllowedException
+};
 use froq\http\response\Status;
 use froq\http\request\params\GetParams;
 use app\repository\{BookResource, BookQuery, data\BookDto};
+use Throwable;
 
 /**
  * Book Controller, accepts/returns JSON data.
@@ -16,10 +22,18 @@ class BookController extends Controller {
     var bool $useRepository = true;
 
     /**
-     * Forward all errors to Index Controller.
+     * Catch all errors.
      */
-    function error($e = null) {
-        $this->forward('Index.error', [$e]);
+    function error(Throwable $e = null) {
+        if ($this->isHttpException($e)) {
+            $error = $e->getMessage();
+            $status = $e->getCode();
+        }
+
+        return new BookResource(
+            error: $error ?? null,
+            status: $status ?? Status::INTERNAL
+        );
     }
 
     /**
@@ -35,10 +49,10 @@ class BookController extends Controller {
                 pager: $pager // byref.
             ),
             meta: [
-                'total' => $pager->getTotalRecords(),
+                'total' => size($data),
                 'pager' => $pager
             ],
-            status: $data ? Status::OK : Status::NOT_FOUND
+            status: $data ? Status::OKAY : Status::NOT_FOUND
         );
     }
 
@@ -50,14 +64,14 @@ class BookController extends Controller {
     function addAction(BookDto $book) {
         if (!$book->isValid()) {
             return new BookResource(
-                error: ['detail' => 'Fields name & author required'],
+                error: 'Fields name & author required',
                 status: Status::BAD_REQUEST
             );
         }
 
         return new BookResource(
             $data = $this->repository->add($book),
-            status: $data ? Status::OK : Status::INTERNAL
+            status: $data ? Status::OKAY : Status::INTERNAL
         );
     }
 
@@ -69,14 +83,14 @@ class BookController extends Controller {
     function editAction(int $id, BookDto $book) {
         if (!$book->isValid()) {
             return new BookResource(
-                error: ['detail' => 'Fields name & author required'],
+                error: 'Fields name & author required',
                 status: Status::BAD_REQUEST
             );
         }
 
         return new BookResource(
             $data = $this->repository->edit($id, $book),
-            status: $data ? Status::OK : Status::NOT_FOUND
+            status: $data ? Status::OKAY : Status::NOT_FOUND
         );
     }
 
@@ -88,7 +102,7 @@ class BookController extends Controller {
     function deleteAction(int $id) {
         return new BookResource(
             $data = $this->repository->delete($id),
-            status: $data ? Status::OK : Status::NOT_FOUND
+            status: $data ? Status::OKAY : Status::NOT_FOUND
         );
     }
 
@@ -100,7 +114,7 @@ class BookController extends Controller {
     function showAction(int $id) {
         return new BookResource(
             $data = $this->repository->find($id),
-            status: $data ? Status::OK : Status::NOT_FOUND
+            status: $data ? Status::OKAY : Status::NOT_FOUND
         );
     }
 }

@@ -1,7 +1,9 @@
-<?php
+<?php declare(strict_types=1);
+
 namespace app\controller;
 
 use froq\app\Controller;
+use Throwable;
 
 /**
  * Index Controller.
@@ -31,7 +33,7 @@ class IndexController extends Controller {
     /**
      * Error.
      */
-    function error($e = null) {
+    function error(Throwable $e = null) {
         echo "Error!", "\n";
         if ($e) {
             echo "Code: ", $e->getCode(), "\n";

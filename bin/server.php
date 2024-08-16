@@ -27,4 +27,4 @@ define('__local__', true);
 define('__LOCAL__', true);
 
 // Forward all to index.php.
-require $_pub . '/index.php';
+require $_pub . '/index_local.php';
