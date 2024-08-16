@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 namespace test\http;
 
 use froq\http\response\Status;

@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 namespace app\repository\data;
 
 use froq\app\data\InputInterface;

@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 namespace app\repository;
 
 use froq\database\Query;

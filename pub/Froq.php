@@ -1,5 +1,4 @@
 <?php declare(strict_types=1);
-
 /**
  * This file is used for running Froq! app in index.php
  * to keep bootstrapping less verbose and globals clean.

@@ -1,17 +1,24 @@
 <?php declare(strict_types=1);
-
-/** Define app dir & start. */
+/**
+ * Define app dir & start.
+ */
 define('APP_DIR', dirname(__DIR__));
 define('APP_START', microtime(true));
 
-/** Require Froq! */
+/**
+ * Require Froq!
+ */
 require __DIR__ . '/Froq.php';
 
 try {
-    /** Initialize. */
+    /**
+     * Initialize.
+     */
     Froq::init(root: '/', env: null, dir: '/var/www/!froq')
 
-    /** Prepare. */
+    /**
+     * Prepare.
+     */
     // ->prepare(function ($app) {
     //     // Error handler.
     //     $app->on('error', function ($event, $error) { ... });
@@ -28,7 +35,9 @@ try {
     //     $app->get('/book/:id', function ($id) { ... });
     // })
 
-    /** Run. */
+    /**
+     * Run.
+     */
     ->run();
 } catch (Throwable $e) {
     Froq::error($e);
