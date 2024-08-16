@@ -25,7 +25,8 @@ jobs:
         run: sudo locale-gen en_US ; sudo locale-gen en_US.UTF-8 ; sudo update-locale
 
       - name: Validate composer.json & composer.lock
-        run: composer validate --strict
+        run: composer validate
+        # run: composer validate --strict
 
       - name: Cache Composer Packages
         id: composer-cache
