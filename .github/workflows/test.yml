@@ -47,8 +47,11 @@ jobs:
       - name: Check Server
         run: |
           echo "> Checking Server: http://localhost:8080/" ; echo ""
-          curl -sS -I "http://localhost:8080/"
+          curl -sS "http://localhost:8080/"
 
       - name: Run Tests
         run: |
-          vendor/bin/phpunit --configuration=test/phpunit.xml
+          echo "Running Unit tests ..." ; echo ""
+          vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite Unit
+          echo "Running Http tests ..." ; echo ""
+          vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite Http
