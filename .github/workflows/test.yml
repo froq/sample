@@ -48,7 +48,7 @@ jobs:
         run: |
           echo "> Checking Server: http://localhost:8080/" ; echo ""
           curl -sS -i "http://localhost:8080/"
-          find var/ -name "*.log"
+          find ./ -name "*.log"
 
       - name: Run Tests
         run: |
