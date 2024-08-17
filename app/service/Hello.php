@@ -3,7 +3,7 @@
 namespace app\service;
 
 /**
- * Sample service to demonstrate service injections.
+ * Sample service to demonstrate service injections
  */
 class Hello implements HelloInterface {
     var string $name;
