@@ -7,7 +7,7 @@
  */
 use froq\{App, AppEnv, Autoloader};
 use froq\util\{Console, Debugger};
-
+.
 /**
  * Runner class.
  * @internal
