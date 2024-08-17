@@ -14,7 +14,7 @@ class BookRepository extends Repository {
     /**
      * Create a table (if not exists).
      */
-    function init(): void {
+    public function init(): void {
         $this->db->execute(<<<SQL
             CREATE TABLE IF NOT EXISTS "books" (
                 "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -29,7 +29,7 @@ class BookRepository extends Repository {
     /**
      * Find a book.
      */
-    function find(int $id): ?array {
+    public function find(int $id): ?array {
         $query = $this->initQuery()
             ->select('*')
             ->from('books')
@@ -44,7 +44,7 @@ class BookRepository extends Repository {
     /**
      * Find all books.
      */
-    function findAll(QueryParams $where, int $page = 1, ?Paginator &$pager = null): ?array {
+    public function findAll(QueryParams $where, int $page = 1, ?Paginator &$pager = null): ?array {
         $query = $this->initQuery()
             ->select('*')
             ->from('books')
@@ -61,7 +61,7 @@ class BookRepository extends Repository {
     /**
      * Add a book.
      */
-    function add(BookDto $book): ?array {
+    public function add(BookDto $book): ?array {
         $book = (new Book($book))->save();
 
         return $book->okay() ? $book->toArray() : null;
@@ -70,7 +70,7 @@ class BookRepository extends Repository {
     /**
      * Edit a book.
      */
-    function edit(int $id, BookDto $book): ?array {
+    public function edit(int $id, BookDto $book): ?array {
         $book = (new Book($book))->save($id);
 
         return $book->okay() ? $book->toArray() : null;
@@ -79,7 +79,7 @@ class BookRepository extends Repository {
     /**
      * Delete a book.
      */
-    function delete(int $id): ?array {
+    public function delete(int $id): ?array {
         $book = (new Book())->remove($id);
 
         return $book->okay() ? $book->toArray() : null;

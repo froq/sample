@@ -15,14 +15,14 @@ class BookController extends Controller {
     /**
      * Target is BookRepository.
      */
-    var bool $useRepository = true;
+    public bool $useRepository = true;
 
     /**
      * Catch all errors.
      *
      * @call internal
      */
-    function error(Throwable $e = null): BookResource {
+    public function error(Throwable $e = null): BookResource {
         if ($this->isHttpException($e)) {
             $error = $e->getMessage();
             $status = $e->getCode();
@@ -39,7 +39,7 @@ class BookController extends Controller {
      *
      * @call GET /book
      */
-    function listAction(GetParams $params): BookResource {
+    public function listAction(GetParams $params): BookResource {
         return new BookResource(
             $data = $this->repository->findAll(
                 where: new BookQuery($params),
@@ -59,7 +59,7 @@ class BookController extends Controller {
      *
      * @call POST /book
      */
-    function addAction(BookDto $book): BookResource {
+    public function addAction(BookDto $book): BookResource {
         if (!$book->isValid()) {
             return new BookResource(
                 error: 'Fields name & author required',
@@ -78,7 +78,7 @@ class BookController extends Controller {
      *
      * @call PUT /book/:id
      */
-    function editAction(int $id, BookDto $book): BookResource {
+    public function editAction(int $id, BookDto $book): BookResource {
         if (!$book->isValid()) {
             return new BookResource(
                 error: 'Fields name & author required',
@@ -97,7 +97,7 @@ class BookController extends Controller {
      *
      * @call DELETE /book/:id
      */
-    function deleteAction(int $id): BookResource {
+    public function deleteAction(int $id): BookResource {
         return new BookResource(
             $data = $this->repository->delete($id),
             status: $data ? Status::OKAY : Status::NOT_FOUND
@@ -109,7 +109,7 @@ class BookController extends Controller {
      *
      * @call GET /book/:id
      */
-    function showAction(int $id): BookResource {
+    public function showAction(int $id): BookResource {
         return new BookResource(
             $data = $this->repository->find($id),
             status: $data ? Status::OKAY : Status::NOT_FOUND

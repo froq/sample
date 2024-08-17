@@ -12,7 +12,7 @@ class BookQuery extends QueryParams {
     /**
      * @override
      */
-    function __construct(GetParams $params) {
+    public function __construct(GetParams $params) {
         if ($id = $params->getInt('id')) {
             $this->addIn('id', [$id]);
         } else {

@@ -6,5 +6,5 @@ namespace app\service;
  * Sample service interface to demonstrate service injections.
  */
 interface HelloInterface {
-    function say(string $name = null): string;
+    public function say(string $name = null): string;
 }

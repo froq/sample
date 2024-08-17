@@ -6,13 +6,13 @@ namespace app\service;
  * Sample service to demonstrate service injections.
  */
 class Hello implements HelloInterface {
-    var string $name;
+    private string $name;
 
-    function __construct(string $name = '?') {
+    public function __construct(string $name = '?') {
         $this->name = $name;
     }
 
-    function say(string $name = null): string {
+    public function say(string $name = null): string {
         return format('Hello, %s!', htmlspecialchars(
             $name ?? $this->name
         ));

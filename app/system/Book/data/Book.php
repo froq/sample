@@ -14,7 +14,7 @@ class Book extends Entry {
      * Accept a book DTO only.
      * @override
      */
-    function __construct(BookDto $book = null) {
+    public function __construct(BookDto $book = null) {
         parent::__construct($book?->toArray());
     }
 
@@ -24,7 +24,7 @@ class Book extends Entry {
      * Note: Since no RETURNING support for version < 3.35 in SQLite,
      * calling this method (SELECT) in others back to fill all data fields.
      */
-    function find(int $id): self {
+    public function find(int $id): self {
         $this->query('books')
              ->select('*')
              ->equal('id', $id);
@@ -38,7 +38,7 @@ class Book extends Entry {
     /**
      * Save a book (insert / update).
      */
-    function save(int $id = null): self {
+    public function save(int $id = null): self {
         $data = $this->toData(['name', 'author']);
         $date = new Date();
 
@@ -64,7 +64,7 @@ class Book extends Entry {
     /**
      * Remove a book.
      */
-    function remove(int $id): self {
+    public function remove(int $id): self {
         if ($this->find($id)) {
             $this->query('books')
                  ->delete()

@@ -15,11 +15,11 @@ class IndexController extends Controller {
     /**
      * Load & use.
      */
-    // var bool $useRepository = true;
-    // var bool $useSession = true;
-    // var bool $useView = true;
+    // public bool $useRepository = true;
+    // public bool $useSession = true;
+    // public bool $useView = true;
 
-    function __construct(
+    public function __construct(
         /** As an alternative for $useSession option. */
         public readonly Session $session,
         /** As an alternative for $app->logger instance. */
@@ -39,21 +39,21 @@ class IndexController extends Controller {
     /**
      * Init.
      */
-    function init(): void {
+    public function init(): void {
         // Init operations.
     }
 
     /**
      * Before.
      */
-    function before(): void {
+    public function before(): void {
         // Before operations.
     }
 
     /**
      * After.
      */
-    function after(): void {
+    public function after(): void {
         // After operations.
     }
 
@@ -62,7 +62,7 @@ class IndexController extends Controller {
      *
      * @call * /
      */
-    function index(HelloInterface $hello): void {
+    public function index(HelloInterface $hello): void {
         echo "Hello, Froq!", "\n";
         echo $hello->say(), "\n";
 
@@ -80,7 +80,7 @@ class IndexController extends Controller {
      * @call * /error
      * @call internal
      */
-    function error(Throwable $e = null): void {
+    public function error(Throwable $e = null): void {
         echo "Error!", "\n";
         if ($e) {
             echo "Code: ", $e->getCode(), "\n";

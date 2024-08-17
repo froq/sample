@@ -11,7 +11,7 @@ class Date extends UtcDateTime {
     /**
      * @override
      */
-    function __toString(): string {
+    public function __toString(): string {
         return $this->format('c');
     }
 }

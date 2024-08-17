@@ -10,16 +10,16 @@ use froq\common\interface\Arrayable;
  * @data
  */
 class BookDto implements InputInterface, Arrayable {
-    var ?int $id;
-    var ?string $name;
-    var ?string $author;
-    var ?string $created_at;
-    var ?string $updated_at;
+    public ?int $id;
+    public ?string $name;
+    public ?string $author;
+    public ?string $created_at;
+    public ?string $updated_at;
 
     /**
      * Simple validation check.
      */
-    function isValid(): bool {
+    public function isValid(): bool {
         return !empty($this->name)
             && !empty($this->author);
     }
@@ -27,7 +27,7 @@ class BookDto implements InputInterface, Arrayable {
     /**
      * @inheritDoc
      */
-    function toArray(): array {
+    public function toArray(): array {
         return [
             'id' => $this->id ?? null,
             'name' => $this->name ?? null,
