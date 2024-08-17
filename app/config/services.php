@@ -6,7 +6,7 @@ return [
     /* It's recommended to use the way below for constructor & method injections. */
     /* So use full class names if you're going to inject these classes into calls. */
 
-    // See IndexController::index() for details
+    // See IndexController::index() for details.
     app\service\HelloInterface::class => [
         // Index 0 is service class.
         app\service\Hello::class,
