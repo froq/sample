@@ -140,8 +140,8 @@ class Froq
     private function requireConfigs(): array
     {
         return require (
-            file_exists(APP_DIR . '/app/config/config-' . $this->env . '.php')
-                ? APP_DIR . '/app/config/config-' . $this->env . '.php'
+            file_exists(APP_DIR . '/app/config/config.' . $this->env . '.php')
+                ? APP_DIR . '/app/config/config.' . $this->env . '.php'
                 : APP_DIR . '/app/config/config.php'
         );
     }

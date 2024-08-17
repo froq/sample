@@ -1,10 +1,10 @@
 <?php
 /**
  * Define your configs here.
+ * @default (for development & production)
  */
 return [
-    /* Note: dot (.) notations are valid for base keys. */
-    /* With/without dots. */
+    /* Note: dot (.) notations are valid for base keys, both valid and same below. */
     /* 'response' => ['json' => ['flags' => JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE]] */
     /* 'response.json' => ['flags' => JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE] */
 
