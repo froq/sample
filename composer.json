@@ -8,8 +8,8 @@
     "require": {
         "php": "^8.2",
         "froq/froq": "^7.0",
-        "froq/session": "^7.0",
-        "froq/log": "^7.0"
+        "froq/froq-session": "^7.0",
+        "froq/froq-log": "^7.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^10.5"
