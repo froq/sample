@@ -2,6 +2,7 @@
 
 namespace app\service;
 
+
 /**
  * Sample service to demonstrate service injections.
  */
