@@ -20,9 +20,9 @@ class IndexController extends Controller {
     // var bool $useView = true;
 
     function __construct(
-        /** Alternative for $useSession option. */
+        /** As an alternative for $useSession option. */
         public readonly Session $session,
-        /** Alternative for $app->logger instance. */
+        /** As an alternative for $app->logger instance. */
         public readonly Logger $logger,
     ) {
         // Optional.
