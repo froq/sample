@@ -7,6 +7,7 @@
  */
 use froq\{App, AppEnv, Autoloader};
 use froq\util\{Console, Debugger};
+use froq\common\object\Config;
 
 /**
  * Runner class.
@@ -14,6 +15,9 @@ use froq\util\{Console, Debugger};
  */
 class Froq
 {
+    /** Default URI root. */
+    const ROOT = '/';
+
     /** App instance. */
     private App $app;
 
@@ -30,23 +34,37 @@ class Froq
 
     /**
      * Constructor.
-     *
-     * @param string      $root
-     * @param string|null $env
-     * @param string|null $dir
      */
-    private function __construct(string $root, string $env = null, string $dir = null)
+    private function __construct(
+        string $root = null, string $env = null, string $dir = null,
+        array $options = [] // For now, dotenv only.
+    )
     {
-        $this->dir = $dir ?: APP_DIR . '/vendor/froq';
+        $this->dir = $dir ?? APP_DIR . '/vendor/froq';
 
         $this->requireLoaders();
 
         $autoloader = Autoloader::init($this->dir);
         $autoloader->register();
 
-        $this->app  = $this->requireApp();
-        $this->root = $root;
-        $this->env  = $env ?: $this->detectEnv();
+        $this->app = $this->requireApp();
+        $this->env = $env ?: $this->detectEnv();
+
+        $options['dotenv']['file'] ??= $this->detectEnvFile();
+        $options['dotenv']['cache'] ??= $this->env === AppEnv::PRODUCTION;
+        $options['dotenv']['global'] ??= false; // @default
+
+        if (isset($options['dotenv']['file'])) {
+            $dotenvConfigs = Config::parseDotEnvFile(
+                $options['dotenv']['file'], !!$options['dotenv']['cache']
+            );
+            $dotenvConfigs['APP_DIR'] = APP_DIR;
+            $dotenvConfigs['APP_ROOT'] ??= self::ROOT;
+
+            Config::applyDotEnvConfigs($dotenvConfigs, !!$options['dotenv']['global']);
+        }
+
+        $this->root = $root ?? $dotenvConfigs['APP_ROOT'] ?? self::ROOT;
     }
 
     /**
@@ -158,12 +176,24 @@ class Froq
         );
     }
 
+    private function detectEnvFile(): ?string
+    {
+        return match (true) {
+            file_exists(APP_DIR . '/.env.' . $this->env)
+                => APP_DIR . '/.env.' . $this->env,
+            file_exists(APP_DIR . '/.env'),
+                => APP_DIR . '/.env',
+            default
+                => null
+        };
+    }
+
     /**
      * Static initializer.
      */
-    public static function init(string $root, string $env = null, string $dir = null): static
+    public static function init(mixed ...$arguments): static
     {
-        return new static($root, $env, $dir);
+        return new static(...$arguments);
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 /**
- * Define app dir & start.
+ * Define app constants.
  */
 define('APP_DIR', dirname(__DIR__));
 define('APP_START', microtime(true));
@@ -13,8 +13,18 @@ require __DIR__ . '/Froq.php';
 try {
     /**
      * Initialize.
+     * @see Froq.php file.
      */
-    Froq::init(root: '/', env: null, dir: null)
+    Froq::init(
+        root: null, env: null, dir: null,
+        // options: [
+        //     'dotenv' => [
+        //         'file' => string, // A static file with full path.
+        //         'cache' => bool,  // Cache parse result (@default=true).
+        //         'global' => bool, // Set result in $_ENV (@default=false).
+        //     ]
+        // ]
+    )
 
     /**
      * Prepare.

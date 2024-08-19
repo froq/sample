@@ -9,10 +9,6 @@ composer.phar
 # Sublime
 *.sublime-*
 
-# DotEnv
-.env
-.env.production
-
 # PHPUnit
 /.phpunit
 .phpunit.cache

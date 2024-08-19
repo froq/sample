@@ -1,5 +1,5 @@
 <?php
 /**
- * Define your configs here.
+ * Define your configs here (env=production).
  */
 return [];
