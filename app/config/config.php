@@ -1,6 +1,8 @@
 <?php
 /**
- * Define your configs here (env=development).
+ * Define your configs here (env=all).
+ * @see froq\AppEnv
+ * @see Froq#requireConfigs() (file=pub/Froq.php)
  */
 return [
     /* Note: dot (.) notations are valid for base keys, both valid and same below. */
