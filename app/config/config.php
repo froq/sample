@@ -10,7 +10,7 @@ return [
     /**
      * App stuff (as in .env configs).
      */
-    // 'url' => env('APP_URL'),
+    'url' => env('APP_URL'),
     // 'host' => env('APP_HOST'),
     // 'port' => env('APP_PORT'),
 
