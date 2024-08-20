@@ -60,9 +60,9 @@ class BookController extends Controller {
      * @call POST /book
      */
     public function addAction(BookDto $book): BookResource {
-        if (!$book->isValid()) {
+        if (!$book->validate($errors)) {
             return new BookResource(
-                error: 'Fields name & author required',
+                error: ['validation' => $errors],
                 status: Status::BAD_REQUEST
             );
         }
@@ -79,9 +79,9 @@ class BookController extends Controller {
      * @call PUT /book/:id
      */
     public function editAction(int $id, BookDto $book): BookResource {
-        if (!$book->isValid()) {
+        if (!$book->validate($errors)) {
             return new BookResource(
-                error: 'Fields name & author required',
+                error: ['validation' => $errors],
                 status: Status::BAD_REQUEST
             );
         }

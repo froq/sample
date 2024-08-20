@@ -43,8 +43,18 @@ class BookControllerTest extends \HttpTestCase
         self::assertSame(Status::BAD_REQUEST, $response->getStatus());
         self::assertSame(Status::BAD_REQUEST, $payload['status']);
 
-        self::assertIsString($payload['error']);
+        self::assertIsArray($payload['error']);
         self::assertNull($payload['data']);
+
+        $validationError = $payload['error']['validation'];
+
+        self::assertIsArray($validationError['name']);
+        self::assertIsInt($validationError['name']['code']);
+        self::assertIsString($validationError['name']['message']);
+
+        self::assertIsArray($validationError['author']);
+        self::assertIsInt($validationError['author']['code']);
+        self::assertIsString($validationError['author']['message']);
     }
 
     function test_add_book_with_okay_status() {
@@ -71,8 +81,18 @@ class BookControllerTest extends \HttpTestCase
         self::assertSame(Status::BAD_REQUEST, $response->getStatus());
         self::assertSame(Status::BAD_REQUEST, $payload['status']);
 
-        self::assertIsString($payload['error']);
+        self::assertIsArray($payload['error']);
         self::assertNull($payload['data']);
+
+        $validationError = $payload['error']['validation'];
+
+        self::assertIsArray($validationError['name']);
+        self::assertIsInt($validationError['name']['code']);
+        self::assertIsString($validationError['name']['message']);
+
+        self::assertIsArray($validationError['author']);
+        self::assertIsInt($validationError['author']['code']);
+        self::assertIsString($validationError['author']['message']);
     }
 
     function test_edit_book_with_not_found_status() {
