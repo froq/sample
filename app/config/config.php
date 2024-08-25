@@ -48,6 +48,14 @@ return [
     ],
 
     /**
+     * Request options.
+     */
+    'request.reduceSlashes' => true, // Redirects /foo//bar/// => /foo/bar
+    'request.addEndingSlashes' => false, // Redirects /foo/bar => /foo/bar/
+    'request.dropEndingSlashes' => false, // Redirects /foo/bar/ => /foo/bar
+    // 'request.parseJsonAsPostData' => true, // Parses request body as JSON @todo?
+
+    /**
      * Response options.
      */
     // 'response.compress'       => ['gzip' or 'zlib', 'minlen' => 64 (in kb) 'level' => 1..9],

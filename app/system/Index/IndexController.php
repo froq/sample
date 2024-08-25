@@ -41,6 +41,8 @@ class IndexController extends Controller {
      */
     public function init(): void {
         // Init operations.
+        // error_reporting(0);
+        // error_displaying(false);
     }
 
     /**

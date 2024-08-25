@@ -14,8 +14,11 @@ $_SERVER['REQUEST_SCHEME'] ??= 'http' . (
     ($_SERVER['SERVER_PORT'] ?? '') === '443' ? 's' : ''
 );
 
+// Fix leading slash issue causing failure with parse_url().
+$_SERVER['REQUEST_URI'] = preg_replace('~^/+~', '/', $_SERVER['REQUEST_URI']);
+
 $_pub = realpath(__DIR__ . '/../pub');
-$_uri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+$_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 // Check for static files.
 if ($_uri !== '/' && file_exists($_pub . $_uri)) {
