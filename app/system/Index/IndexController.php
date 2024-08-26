@@ -108,6 +108,6 @@ class IndexController extends Controller {
      */
     #[meta('/test-attrib', method: '*')]
     public function testAttribAction(): void {
-        echo "Replied for attributed method!";
+        echo "Replied for attributed method!", "\n";
     }
 }
