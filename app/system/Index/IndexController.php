@@ -90,4 +90,24 @@ class IndexController extends Controller {
             echo $e, "\n";
         }
     }
+
+    /**
+     * Test for annotated route.
+     *
+     * @see config/routes.with-annots.php
+     * @call * /test-annot
+     */
+    public function testAnnotAction(): void {
+        echo "Replied for annotated method!", "\n";
+    }
+
+    /**
+     * Test for attributed route.
+     *
+     * @see config/routes.with-attribs.php
+     */
+    #[meta('/test-attrib', method: '*')]
+    public function testAttribAction(): void {
+        echo "Replied for attributed method!";
+    }
 }

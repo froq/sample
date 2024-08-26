@@ -150,9 +150,20 @@ return [
     // 'key' => 'value' or env('VALUE'),
 
     /**
-     * Routes & services.
-     * !!! DO NOT EDIT !!!
+     * Routes.
      */
     'routes' => require __DIR__ . '/routes.php',
+    // 'routes' => require __DIR__ . '/routes.with-annots.php',
+    // 'routes' => require __DIR__ . '/routes.with-attribs.php',
+    // Or combined.
+    // 'routes' => array_merge(
+    //     require __DIR__ . '/routes.php',
+    //     require __DIR__ . '/routes.with-annots.php',
+    //     require __DIR__ . '/routes.with-attribs.php',
+    // ),
+
+    /**
+     * Services.
+     */
     'services' => require __DIR__ . '/services.php',
 ];
