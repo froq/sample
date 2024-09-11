@@ -56,7 +56,7 @@ class Book extends Entry {
         $this->commit();
 
         // Use given or insert id.
-        $this->find($id ?? $this->result()->id() ?? 0);
+        $this->find($id ?? $this->id() ?? 0);
 
         return $this;
     }
